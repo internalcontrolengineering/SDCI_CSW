@@ -1,0 +1,3402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marco Normativo Corporativo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a365d;
+            --secondary: #2d3748;
+            --accent: #3182ce;
+            --light: #f7fafc;
+            --dark: #2d3748;
+            --success: #38a169;
+            --warning: #d69e2e;
+            --danger: #e53e3e;
+            --transition: all 0.3s ease;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a365d, #2d3748, #4a5568);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3182ce, #38a169, #d69e2e);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+        
+        .logo-container {
+            margin: 1.5rem auto;
+            text-align: center;
+        }
+        
+        .logo-container img {
+            max-width: 150px;
+            height: auto;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 2.5rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .tab-btn {
+            background-color: white;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            padding: 14px 26px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tab-btn:hover {
+            background: linear-gradient(135deg, var(--accent), #4a9ce9);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(49, 130, 206, 0.3);
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(135deg, var(--accent), #4a9ce9);
+            color: white;
+            box-shadow: 0 6px 12px rgba(49, 130, 206, 0.25);
+        }
+        
+        .content-section {
+            display: none;
+            background-color: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2.5rem;
+            animation: fadeIn 0.5s ease;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .section-title {
+            color: var(--primary);
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, var(--accent), transparent) 1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+        }
+        
+        .section-icon {
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, var(--accent), #4a9ce9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--accent);
+            transition: var(--transition);
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent), #4a9ce9);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .card-title {
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .card-content {
+            margin-left: 0.5rem;
+        }
+        
+        .card-item {
+            margin-bottom: 1.2rem;
+            padding-left: 1.2rem;
+            border-left: 3px solid #e2e8f0;
+            transition: var(--transition);
+        }
+        
+        .card-item:hover {
+            border-left-color: var(--accent);
+            background-color: rgba(49, 130, 206, 0.03);
+            padding-left: 1.5rem;
+        }
+        
+        .arrow {
+            color: var(--accent);
+            margin-right: 8px;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, rgba(49, 130, 206, 0.08), rgba(56, 161, 105, 0.05));
+            padding: 1.8rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+        
+        .non-normative {
+            background: linear-gradient(135deg, rgba(229, 62, 62, 0.05), rgba(229, 62, 62, 0.02));
+            border-left: 5px solid var(--danger);
+        }
+        
+        .rule-general {
+            background: linear-gradient(135deg, rgba(56, 161, 105, 0.1), rgba(56, 161, 105, 0.05));
+            border-left: 5px solid var(--success);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .responsibility-list {
+            list-style-type: none;
+            margin-left: 1rem;
+        }
+        
+        .responsibility-list li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 2rem;
+            transition: var(--transition);
+        }
+        
+        .responsibility-list li:hover {
+            transform: translateX(5px);
+        }
+        
+        .responsibility-list li:before {
+            content: "▸";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(135deg, var(--primary), #2d3748);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: rgba(49, 130, 206, 0.05);
+        }
+        
+        .authorization-box {
+            background: linear-gradient(135deg, rgba(49, 130, 206, 0.08), rgba(49, 130, 206, 0.03));
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 1.8rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+        
+        .authorization-title {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .document-structure-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .document-structure-table th, .document-structure-table td {
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .document-structure-table th {
+            background: linear-gradient(135deg, var(--primary), #2d3748);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .document-structure-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+        
+        .document-structure-table tr:hover {
+            background-color: rgba(49, 130, 206, 0.05);
+        }
+        
+        .document-type-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--accent);
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .document-type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent), #4a9ce9);
+        }
+        
+        .document-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+        
+        .document-type-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .document-key {
+            background: linear-gradient(135deg, var(--accent), #4a9ce9);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 3px 8px rgba(49, 130, 206, 0.3);
+        }
+        
+        .guidelines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .guideline-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: var(--transition);
+        }
+        
+        .guideline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: var(--accent);
+        }
+        
+        .guideline-title {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .example-box {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--success);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+        
+        .example-correct {
+            border-left-color: var(--success);
+        }
+        
+        .example-incorrect {
+            border-left-color: var(--danger);
+        }
+        
+        .example-title {
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .document-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .feature-item {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .feature-title {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .importance-box {
+            background: linear-gradient(135deg, rgba(56, 161, 105, 0.1), rgba(56, 161, 105, 0.05));
+            border-left: 5px solid var(--success);
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .importance-title {
+            font-weight: bold;
+            color: var(--success);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 3rem;
+            background: white;
+            border-radius: 16px 16px 0 0;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Nuevos estilos para las funcionalidades añadidas */
+        
+        /* Sistema de navegación por puntos flotantes */
+        .floating-nav {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border-radius: 20px;
+            padding: 15px 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #e2e8f0;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-dot.active {
+            background-color: var(--accent);
+            transform: scale(1.3);
+        }
+        
+        .nav-dot:hover::after {
+            content: attr(data-section);
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+        
+        /* Barra de progreso inteligente */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: #e2e8f0;
+            z-index: 1001;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), #4a9ce9);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+/* Dashboard de Progreso - Versión Mejorada */
+.dashboard-panel {
+    position: fixed;
+    top: 100px;
+    left: 20px;
+    background: white;
+    border-radius: 12px;
+    padding: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    width: 260px;
+    cursor: grab;
+    border: 1px solid #e2e8f0;
+    transition: var(--transition);
+    overflow: hidden;
+}
+
+.dashboard-panel.collapsed {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.dashboard-panel.collapsed .dashboard-header {
+    padding: 0;
+    background: linear-gradient(135deg, var(--primary), #2d3748);
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.dashboard-panel.collapsed .dashboard-title {
+    font-size: 0.7rem;
+    text-align: center;
+    line-height: 1.2;
+    padding: 5px;
+    color: white;
+}
+
+.dashboard-panel.collapsed .dashboard-toggle {
+    display: none;
+}
+
+.dashboard-panel.collapsed .dashboard-content {
+    display: none;
+}
+
+.dashboard-panel.collapsed .level-badge {
+    display: none;
+}        
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary), #2d3748);
+            color: white;
+            border-radius: 12px 12px 0 0;
+            cursor: pointer;
+        }
+        
+        .dashboard-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .dashboard-toggle {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            transition: var(--transition);
+        }
+        
+        .dashboard-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .dashboard-content {
+            padding: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .dashboard-content.collapsed {
+            display: none;
+        }
+        
+        .level-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), #4a9ce9);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-align: center;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+        
+        .achievements-section {
+            margin-top: 15px;
+        }
+        
+        .achievements-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .achievement {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 8px;
+            background: #f8fafc;
+            transition: var(--transition);
+            font-size: 0.8rem;
+        }
+        
+        .achievement.locked {
+            opacity: 0.5;
+        }
+        
+        .achievement.unlocked {
+            background: rgba(56, 161, 105, 0.1);
+            border-left: 3px solid var(--success);
+        }
+        
+        .achievement-icon {
+            font-size: 1.2rem;
+            color: var(--warning);
+            flex-shrink: 0;
+        }
+        
+        .achievement.locked .achievement-icon {
+            color: #cbd5e0;
+        }
+        
+        .achievement-info {
+            flex: 1;
+        }
+        
+        .achievement-name {
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-bottom: 2px;
+        }
+        
+        .achievement-desc {
+            font-size: 0.7rem;
+            color: var(--secondary);
+        }
+        
+        /* Preguntas interactivas */
+        .quiz-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--card-shadow);
+            border-left: 5px solid var(--warning);
+        }
+        
+        .quiz-question {
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .quiz-option {
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .quiz-option:hover {
+            border-color: var(--accent);
+            background: rgba(49, 130, 206, 0.05);
+        }
+        
+        .quiz-option.selected {
+            border-color: var(--success);
+            background: rgba(56, 161, 105, 0.1);
+        }
+        
+        .quiz-option.correct {
+            border-color: var(--success);
+            background: rgba(56, 161, 105, 0.1);
+        }
+        
+        .quiz-option.incorrect {
+            border-color: var(--danger);
+            background: rgba(229, 62, 62, 0.1);
+        }
+        
+        .quiz-feedback {
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 1rem;
+            display: none;
+        }
+        
+        .quiz-feedback.correct {
+            background: rgba(56, 161, 105, 0.1);
+            border-left: 4px solid var(--success);
+            display: block;
+        }
+        
+        .quiz-feedback.incorrect {
+            background: rgba(229, 62, 62, 0.1);
+            border-left: 4px solid var(--danger);
+            display: block;
+        }
+        
+        /* Efectos de revelado al scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Popups de logros desbloqueados */
+        .achievement-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            z-index: 1002;
+            text-align: center;
+            max-width: 400px;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .achievement-popup.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            pointer-events: auto;
+        }
+        
+        .achievement-popup-icon {
+            font-size: 3rem;
+            color: var(--warning);
+            margin-bottom: 1rem;
+        }
+        
+        .achievement-popup-title {
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .achievement-popup-desc {
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .popup-overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        /* Estilos para el certificado */
+        .certificate-btn-container {
+            text-align: center;
+            margin: 2rem 0;
+            display: none;
+        }
+        
+        .certificate-btn {
+            background: linear-gradient(135deg, var(--success), #2ecc71);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 8px 20px rgba(56, 161, 105, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .certificate-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(56, 161, 105, 0.4);
+        }
+        
+        .certificate-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1003;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        
+        .certificate-modal.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .certificate-form {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        
+        .certificate-modal.show .certificate-form {
+            transform: translateY(0);
+        }
+        
+        .certificate-form h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus {
+            border-color: var(--accent);
+            outline: none;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 2rem;
+        }
+        
+        .form-actions button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), #4a9ce9);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(49, 130, 206, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #e2e8f0;
+            color: var(--dark);
+        }
+        
+        .btn-secondary:hover {
+            background: #cbd5e0;
+        }
+        
+        .certificate-preview {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+        
+        .certificate-modal.show .certificate-preview {
+            transform: translateY(0);
+        }
+        
+        .certificate-content {
+            border: 5px solid var(--primary);
+            padding: 3rem;
+            border-radius: 10px;
+            background: white;
+            position: relative;
+        }
+        
+        .certificate-logo {
+            margin-bottom: 1.5rem;
+        }
+        
+        .certificate-logo img {
+            max-width: 150px;
+            height: auto;
+        }
+        
+        .certificate-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .certificate-subtitle {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .certificate-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .certificate-user {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0;
+            color: var(--primary);
+        }
+        
+        .certificate-date {
+            margin-top: 2rem;
+            font-style: italic;
+            color: var(--secondary);
+        }
+        
+        .certificate-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .comparison-table, .document-structure-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .guidelines-grid, .document-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .document-type-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .content-section {
+                padding: 1.5rem;
+            }
+            
+            .floating-nav, .dashboard-panel {
+                display: none;
+            }
+            
+            .certificate-content {
+                padding: 1.5rem;
+            }
+            
+            .certificate-title {
+                font-size: 2rem;
+            }
+            
+            .certificate-actions {
+                flex-direction: column;
+            }
+        }
+
+/* Botón de pantalla completa */
+.fullscreen-btn{
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 2px solid rgba(255,255,255,0.55);
+  background: rgba(0,0,0,0.25);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 1100;
+}
+
+.fullscreen-btn:hover{
+  background: rgba(0,0,0,0.35);
+  transform: scale(1.05);
+}
+
+.fullscreen-btn:active{
+  transform: scale(0.98);
+}
+
+    </style>
+</head>
+<body>
+    <!-- Barra de progreso -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+    
+    <!-- Dashboard de Progreso - Versión Mejorada -->
+    <div class="dashboard-panel" id="dashboardPanel">
+        <div class="dashboard-header" id="dashboardHeader">
+            <div class="dashboard-title">Mi Progreso</div>
+            <button class="dashboard-toggle" id="dashboardToggle">
+                <i class="fas fa-chevron-down" id="dashboardToggleIcon"></i>
+            </button>
+        </div>
+        
+        <div class="dashboard-content" id="dashboardContent">
+            <div class="level-badge">Nivel <span id="userLevel">1</span></div>
+            
+            <div class="achievements-section">
+                <div class="achievements-title">
+                    <i class="fas fa-trophy"></i> Logros
+                </div>
+                
+                <div class="achievement locked" id="achievementFirstSection">
+                    <div class="achievement-icon"><i class="fas fa-book-reader"></i></div>
+                    <div class="achievement-info">
+                        <div class="achievement-name">Primeros Pasos</div>
+                        <div class="achievement-desc">Completa tu primera sección</div>
+                    </div>
+                </div>
+                
+                <div class="achievement locked" id="achievementStrategic">
+                    <div class="achievement-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="achievement-info">
+                        <div class="achievement-name">Estratega</div>
+                        <div class="achievement-desc">Completa Documentos Estratégicos</div>
+                    </div>
+                </div>
+                
+                <div class="achievement locked" id="achievementOperational">
+                    <div class="achievement-icon"><i class="fas fa-cogs"></i></div>
+                    <div class="achievement-info">
+                        <div class="achievement-name">Operador</div>
+                        <div class="achievement-desc">Completa Documentos Operativos</div>
+                    </div>
+                </div>
+                
+                <div class="achievement locked" id="achievementSupport">
+                    <div class="achievement-icon"><i class="fas fa-folder-open"></i></div>
+                    <div class="achievement-info">
+                        <div class="achievement-name">Organizador</div>
+                        <div class="achievement-desc">Completa Documentación de Soporte</div>
+                    </div>
+                </div>
+                
+                <div class="achievement locked" id="achievementRoles">
+                    <div class="achievement-icon"><i class="fas fa-users"></i></div>
+                    <div class="achievement-info">
+                        <div class="achievement-name">Coordinador</div>
+                        <div class="achievement-desc">Completa Roles y Responsabilidades</div>
+                    </div>
+                </div>
+                
+                <div class="achievement locked" id="achievementStructure">
+                    <div class="achievement-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="achievement-info">
+                        <div class="achievement-name">Estructurador</div>
+                        <div class="achievement-desc">Completa Estructura Documental</div>
+                    </div>
+                </div>
+                
+                <div class="achievement locked" id="achievementGuide">
+                    <div class="achievement-icon"><i class="fas fa-book"></i></div>
+                    <div class="achievement-info">
+                        <div class="achievement-name">Guía</div>
+                        <div class="achievement-desc">Completa Guía de Elaboración</div>
+                    </div>
+                </div>
+                
+                <div class="achievement locked" id="achievementNonNormative">
+                    <div class="achievement-icon"><i class="fas fa-times-circle"></i></div>
+                    <div class="achievement-info">
+                        <div class="achievement-name">Clasificador</div>
+                        <div class="achievement-desc">Completa No Normativos</div>
+                    </div>
+                </div>
+                
+                <div class="achievement locked" id="achievementQuizMaster">
+                    <div class="achievement-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="achievement-info">
+                        <div class="achievement-name">Estudiante Aplicado</div>
+                        <div class="achievement-desc">Completa todas las preguntas correctamente</div>
+                    </div>
+                </div>
+                
+                <div class="achievement locked" id="achievementExpert">
+                    <div class="achievement-icon"><i class="fas fa-medal"></i></div>
+                    <div class="achievement-info">
+                        <div class="achievement-name">Experto en Normativas</div>
+                        <div class="achievement-desc">Completa todo el contenido</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Navegación por puntos flotantes -->
+    <div class="floating-nav">
+        <div class="nav-dot active" data-section="Estratégicos" data-target="strategic"></div>
+        <div class="nav-dot" data-section="Operativos" data-target="operational"></div>
+        <div class="nav-dot" data-section="Soporte" data-target="support"></div>
+        <div class="nav-dot" data-section="Roles" data-target="roles"></div>
+        <div class="nav-dot" data-section="Estructura" data-target="structure"></div>
+        <div class="nav-dot" data-section="Guía" data-target="guide"></div>
+        <div class="nav-dot" data-section="No Normativos" data-target="non-normative"></div>
+    </div>
+    
+    <!-- Popup de logros -->
+    <div class="popup-overlay" id="popupOverlay"></div>
+    <div class="achievement-popup" id="achievementPopup">
+        <div class="achievement-popup-icon"><i class="fas fa-trophy"></i></div>
+        <div class="achievement-popup-title" id="popupTitle">¡Logro Desbloqueado!</div>
+        <div class="achievement-popup-desc" id="popupDesc">Has completado una sección del contenido</div>
+        <button class="tab-btn" id="closePopup" style="margin: 0 auto;">Continuar</button>
+    </div>
+    
+    <!-- Modal para datos del certificado -->
+    <div class="certificate-modal" id="certificateModal">
+        <div class="certificate-form" id="certificateForm">
+            <h3><i class="fas fa-award"></i> Solicitar Certificado</h3>
+            <p style="margin-bottom: 1.5rem; text-align: center;">Para generar tu certificado, por favor ingresa tus datos:</p>
+            
+            <div class="form-group">
+                <label for="userName">Nombre Completo</label>
+                <input type="text" id="userName" placeholder="Ingresa tu nombre completo" required>
+            </div>
+            
+            <div class="form-actions">
+                <button class="btn-secondary" id="cancelCertificate">Cancelar</button>
+                <button class="btn-primary" id="generateCertificate">Generar Certificado</button>
+            </div>
+        </div>
+        
+        <div class="certificate-preview" id="certificatePreview" style="display: none;">
+            <div class="certificate-content" id="certificateContent">
+                <div class="certificate-logo">
+                    <img src="https://raw.githubusercontent.com/jpojedawork-ai/Desarrollos/main/Logo%20CSW.png" alt="Logo Scriptum" class="w-32 h-auto mx-auto">
+                </div>
+                
+                <h1 class="certificate-title">Certificado de Finalización</h1>
+                <p class="certificate-subtitle">Gestión Documental con Enfoque de Riesgos</p>
+                
+                <div class="certificate-text">
+                    <p>Se certifica que <strong id="certificateUserName"></strong> ha completado satisfactoriamente el programa de formación sobre el Marco Normativo Corporativo y ha demostrado comprensión integral de:</p>
+                    
+                    <ul style="text-align: left; margin-left: 2rem;">
+                        <li>Documentación Estratégica y Operativa</li>
+                        <li>Estructura y Clasificación Documental</li>
+                        <li>Roles y Responsabilidades en Gestión Documental</li>
+                        <li>Guías para la Elaboración de Documentos Normativos</li>
+                    </ul>
+                    
+                    <p>El participante acredita haber leído completamente el material y se compromete a aplicar los conocimientos adquiridos en la elaboración de documentación normativa interna de la empresa, asegurando el cumplimiento de los estándares establecidos y contribuyendo al fortalecimiento del control interno organizacional.</p>
+                </div>
+                
+                <div class="certificate-user" id="certificateUserFullName"></div>
+                
+                <div class="certificate-date" id="certificateDate"></div>
+            </div>
+            
+            <div class="certificate-actions">
+                <button class="btn-primary" id="downloadCertificate">
+                    <i class="fas fa-download"></i> Descargar PDF
+                </button>
+            </div>
+        </div>
+    </div>
+
+<header>
+
+  <!-- BOTÓN PANTALLA COMPLETA -->
+  <button id="fullscreenBtn" class="fullscreen-btn" title="Pantalla completa">
+    <i id="fullscreenIcon" class="fas fa-expand"></i>
+  </button>
+
+    <div class="container">
+        <!-- Logo de Control Interno centrado arriba - DORADO -->
+        <div class="logo-container" style="margin-bottom: 0.5rem;">
+            <img src="https://raw.githubusercontent.com/jpojedawork-ai/Desarrollos/main/Logo%20Control%20Interno.png" 
+                 alt="Logo Control Interno" 
+                 style="max-width: 140px; height: auto; display: block; margin: 0 auto; filter: brightness(0) saturate(100%) invert(69%) sepia(36%) saturate(458%) hue-rotate(6deg) brightness(90%) contrast(86%);">
+        </div>
+        
+        <h1>Sistema de Control Interno</h1>
+        <p class="subtitle">Gestión Documental con Enfoque de Riesgos</p>
+        <p class="subtitle">Estructura y Clasificación de la Documentación Normativa Interna</p>
+        
+        <!-- Logo de Scriptum debajo (conservado) -->
+        <div class="logo-container" style="margin-top: 1.5rem;">
+            <img src="https://raw.githubusercontent.com/jpojedawork-ai/Desarrollos/main/Logo%20CSW.png" 
+                 alt="Logo Scriptum" 
+                 style="max-width: 150px; height: auto; display: block; margin: 0 auto;">
+        </div>
+    </div>
+</header>
+    
+    <div class="container">
+        <!-- Botón para solicitar certificado (aparece cuando se completan todos los logros) -->
+        <div class="certificate-btn-container" id="certificateBtnContainer">
+            <button class="certificate-btn" id="requestCertificate">
+                <i class="fas fa-award"></i> Solicitar Certificado de Finalización
+            </button>
+        </div>
+        
+        <div class="nav-tabs">
+            <button class="tab-btn active" data-target="strategic">
+                <i class="fas fa-chart-line"></i> Documentos Estratégicos
+            </button>
+            <button class="tab-btn" data-target="operational">
+                <i class="fas fa-cogs"></i> Documentos Operativos
+            </button>
+            <button class="tab-btn" data-target="support">
+                <i class="fas fa-folder-open"></i> Documentación de Soporte
+            </button>
+            <button class="tab-btn" data-target="roles">
+                <i class="fas fa-users"></i> Roles y Responsabilidades
+            </button>
+            <button class="tab-btn" data-target="structure">
+                <i class="fas fa-file-alt"></i> Estructura Documental
+            </button>
+            <button class="tab-btn" data-target="guide">
+                <i class="fas fa-book"></i> Guía de Elaboración
+            </button>
+            <button class="tab-btn" data-target="non-normative">
+                <i class="fas fa-times-circle"></i> No Normativos
+            </button>
+        </div>
+        
+        <!-- Sección Documentos Estratégicos -->
+        <section id="strategic" class="content-section active">
+            <h2 class="section-title">
+                <i class="fas fa-chart-line section-icon"></i>
+                Primer Nivel: Documentos Estratégicos (Marco)
+            </h2>
+            
+            <div class="highlight reveal">
+                <p>Los Documentos Marco o Estratégicos son la base de la estructura documental de la empresa. Este nivel incluye manuales que establecen lineamientos generales, principios, metodologías y normas que orientan las operaciones y la gestión de documentación en todas las áreas.</p>
+                <p>Estos documentos son fundamentales para definir la cultura organizacional y crear un marco sólido para la toma de decisiones. Alinean los procedimientos y políticas con los objetivos estratégicos de la organización, promoviendo consistencia y eficiencia en la gestión de procesos a nivel organizacional. Un marco bien definido facilita el cumplimiento normativo y fomenta un entorno laboral estructurado y eficaz.</p>
+            </div>
+            
+            <div class="document-type-card reveal">
+                <div class="document-type-header">
+                    <h3>Manual de Políticas y Lineamientos Generales de las Áreas (PyLG's)</h3>
+                    <span class="document-key">PLG</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>Propósito:</strong> El Manual de Políticas y Lineamientos Generales de las Áreas es un documento estratégico que establece los principios, directrices y normativas generales que guían las operaciones y la gestión en las distintas áreas de la organización. Este manual define el marco de actuación para los procesos, asegurando que se realicen de manera consistente y alineada con los objetivos estratégicos de la empresa. Responde a la pregunta: ¿Qué se hace?</p>
+                    <p><strong>Contenido:</strong> Contienen directrices, políticas y normativas generales que guían la operación de los procesos.</p>
+                    
+                    <div class="importance-box">
+                        <h4 class="importance-title"><i class="fas fa-chart-line"></i> Importancia:</h4>
+                        <ul class="responsibility-list">
+                            <li><strong>Homogeneización de procesos:</strong> Promueve la uniformidad en la forma en que se realizan las actividades en toda la empresa.</li>
+                            <li><strong>Toma de decisiones:</strong> Proporciona una base sólida y estructurada para decisiones alineadas con la estrategia empresarial.</li>
+                            <li><strong>Cumplimiento normativo:</strong> Facilita la conformidad con leyes y regulaciones aplicables, así como con estándares internos.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="authorization-box">
+                        <div class="authorization-title"><i class="fas fa-user-check"></i> Autorización:</div>
+                        <p>Requiere la aprobación autógrafa de:</p>
+                        <ul class="responsibility-list">
+                            <li>Dirección General Operativa</li>
+                            <li>Responsable del área</li>
+                            <li>Dirección de Auditoría</li>
+                            <li>Gestor documental</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pregunta interactiva 1 -->
+            <div class="quiz-container reveal">
+                <div class="quiz-question">¿Cuál es el propósito principal de los Documentos Estratégicos?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="false">Detallar procedimientos operativos específicos</div>
+                    <div class="quiz-option" data-correct="true">Establecer lineamientos generales y principios para la organización</div>
+                    <div class="quiz-option" data-correct="false">Registrar datos operativos diarios</div>
+                    <div class="quiz-option" data-correct="false">Documentar actividades de soporte</div>
+                </div>
+                <div class="quiz-feedback">
+                    <strong id="feedbackText"></strong>
+                </div>
+            </div>
+            
+            <!-- Pregunta interactiva 2 -->
+            <div class="quiz-container reveal">
+                <div class="quiz-question">¿Qué tipo de información contiene principalmente un Manual de Políticas y Lineamientos Generales?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="false">Instrucciones detalladas paso a paso</div>
+                    <div class="quiz-option" data-correct="true">Directrices y normativas generales</div>
+                    <div class="quiz-option" data-correct="false">Registros de actividades diarias</div>
+                    <div class="quiz-option" data-correct="false">Datos financieros específicos</div>
+                </div>
+                <div class="quiz-feedback">
+                    <strong id="feedbackText"></strong>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección Documentos Operativos -->
+        <section id="operational" class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-cogs section-icon"></i>
+                Segundo Nivel: Documentos Operativos
+            </h2>
+            
+            <div class="highlight reveal">
+                <p>El Segundo Nivel abarca los Documentos Operativos, que son esenciales para la ejecución efectiva de los lineamientos establecidos en los Documentos Marco. Estos documentos detallan los procesos específicos que deben seguirse para realizar las operaciones diarias de manera consistente.</p>
+                <p>Estos documentos contribuyen a la ejecución coherente y eficiente de las operaciones, reduciendo errores y facilitando la capacitación del personal.</p>
+            </div>
+            
+            <div class="document-type-card reveal">
+                <div class="document-type-header">
+                    <h3>Procedimientos Operativos (POP)</h3>
+                    <span class="document-key">POP</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>Propósito:</strong> Para definir un procedimiento, es fundamental comprender que los procesos son un conjunto de etapas interrelacionadas que se desarrollan de manera secuencial o paralela con el fin de alcanzar objetivos generales de negocio. Estos procesos tienen un enfoque más amplio y describen, en términos generales, el "qué" se hace y el "por qué" de cada actividad, de acuerdo con los lineamientos establecidos en los documentos estratégicos de la organización.</p>
+                    <p>En este contexto, los procedimientos constituyen documentos más detallados que se centran en el "cómo" se deben ejecutar las actividades dentro de cada fase del proceso. Los procedimientos describen un conjunto de actividades secuenciales e interrelacionadas, cuyo propósito es lograr un objetivo específico que contribuye al cumplimiento de los objetivos generales establecidos en los procesos. Así, los procedimientos aseguran que cada actividad se realice de acuerdo con los estándares, políticas y mejores prácticas organizacionales, garantizando la eficiencia y la efectividad en el logro de los resultados esperados.</p>
+                    <p>Responde a la pregunta: ¿Cómo se hace?</p>
+                    <p><strong>Contenido:</strong> Instrucciones detalladas sobre los procedimientos operativos necesarios para la ejecución de cada proceso.</p>
+                    
+                    <div class="importance-box">
+                        <h4 class="importance-title"><i class="fas fa-chart-line"></i> Importancia:</h4>
+                        <ul class="responsibility-list">
+                            <li><strong>Operación consistente:</strong> Garantiza la uniformidad en la realización de tareas, mejorando la eficiencia operativa.</li>
+                            <li><strong>Facilita auditorías:</strong> Proporciona evidencia de las prácticas y estándares operativos.</li>
+                            <li><strong>Apoyo en la resolución de problemas:</strong> Ofrece una referencia clara para identificar y corregir desviaciones en los procesos.</li>
+                            <li><strong>Base para la mejora continua:</strong> Ayuda a identificar áreas de optimización dentro de los procesos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="document-type-card reveal">
+                <div class="document-type-header">
+                    <h3>Guías Operativas</h3>
+                    <span class="document-key">GOP</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>Propósito:</strong> Una Guía Operativa es un documento que proporciona una descripción detallada y paso a paso de una actividad específica dentro de un procedimiento. Está diseñada para ofrecer un mayor nivel de detalle y facilitar la comprensión y ejecución de la tarea. Su propósito es asegurar que los responsables de llevar a cabo la actividad tengan instrucciones claras sobre los pasos a seguir, los recursos necesarios y los puntos de control relevantes, garantizando así la correcta implementación de la tarea y el cumplimiento de los estándares establecidos.</p>
+                    <p><strong>Contenido:</strong> Instrucciones detalladas para asegurar que las tareas se realicen de manera correcta y consistente.</p>
+                    
+                    <div class="importance-box">
+                        <h4 class="importance-title"><i class="fas fa-chart-line"></i> Importancia:</h4>
+                        <ul class="responsibility-list">
+                            <li><strong>Estandarización:</strong> Asegura que las actividades se realicen de forma consistente, independientemente de la persona que las ejecute.</li>
+                            <li><strong>Reducción de errores:</strong> Disminuye la probabilidad de fallos operativos al proporcionar una guía clara y detallada.</li>
+                            <li><strong>Mejora de la eficiencia:</strong> Facilita la ejecución rápida y precisa de las tareas.</li>
+                            <li><strong>Cumplimiento de estándares:</strong> Ayuda a garantizar que las actividades se alineen con las políticas y procedimientos establecidos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="document-type-card reveal">
+                <div class="document-type-header">
+                    <h3>Manuales Técnicos</h3>
+                    <span class="document-key">MAN</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>Propósito:</strong> Un Manual Técnico es un documento que proporciona una descripción detallada de los procedimientos, procesos, especificaciones y características técnicas de un producto, servicio o sistema. Este tipo de documento está diseñado para ofrecer instrucciones claras y precisas sobre cómo utilizar, mantener o resolver problemas relacionados con equipos, herramientas, tecnologías o sistemas dentro de la organización.</p>
+                    <p><strong>Tipos:</strong> Manual de Usuario, Manual de Mantenimiento, Manual de Instalación, Manual de Diagnóstico y Reparación.</p>
+                    
+                    <div class="importance-box">
+                        <h4 class="importance-title"><i class="fas fa-chart-line"></i> Importancia:</h4>
+                        <ul class="responsibility-list">
+                            <li><strong>Eficiencia operativa:</strong> Facilita la ejecución correcta de tareas técnicas, reduciendo el riesgo de errores operativos, mejorando la productividad.</li>
+                            <li><strong>Seguridad:</strong> Contribuye a que los empleados sigan prácticas de trabajo seguras, evitando accidentes o daños a equipos.</li>
+                            <li><strong>Cumplimiento normativo:</strong> Asegura que se sigan las normativas técnicas y de seguridad correspondientes, evitando incumplimientos regulatorios.</li>
+                            <li><strong>Optimización del mantenimiento:</strong> Permite un mantenimiento eficiente de los equipos y sistemas, extendiendo su vida útil y reduciendo costos operativos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="document-type-card reveal">
+                <div class="document-type-header">
+                    <h3>Políticas</h3>
+                    <span class="document-key">POL</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>Propósito:</strong> Una Política es un documento organizacional que establece principios, directrices y reglas de carácter general para guiar la toma de decisiones y las acciones dentro de la organización. Sirve como marco de referencia para definir lo que debe hacerse en situaciones específicas, alineando las actividades y comportamientos con los valores, objetivos estratégicos y requisitos normativos de la empresa.</p>
+                    <p><strong>Contenido:</strong> Lineamientos que definen lo que debe hacerse en situaciones específicas.</p>
+                    
+                    <div class="importance-box">
+                        <h4 class="importance-title"><i class="fas fa-chart-line"></i> Importancia:</h4>
+                        <ul class="responsibility-list">
+                            <li><strong>Clarifica expectativas:</strong> Define cómo se deben realizar las actividades y comportarse los colaboradores.</li>
+                            <li><strong>Facilita la toma de decisiones:</strong> Proporciona un marco claro para resolver situaciones comunes o excepcionales.</li>
+                            <li><strong>Promueve el cumplimiento normativo:</strong> Reduce riesgos asociados con el incumplimiento de leyes y regulaciones.</li>
+                            <li><strong>Fortalece la gobernanza:</strong> Proporciona transparencia y responsabilidad en las operaciones organizacionales.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="document-type-card reveal">
+                <div class="document-type-header">
+                    <h3>Planes</h3>
+                    <span class="document-key">PLN</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>Propósito:</strong> Un plan es un documento estratégico que establece los objetivos, metas, recursos, actividades y procedimientos necesarios para alcanzar una finalidad específica dentro de un plazo determinado. En un contexto organizacional, un plan define de manera detallada cómo se llevará a cabo una acción o proyecto, qué recursos se emplearán, quiénes serán responsables y qué plazos se deben cumplir.</p>
+                    <p><strong>Tipos:</strong> Plan de trabajo, Plan estratégico, Plan de contingencia, Plan de acción.</p>
+                    
+                    <div class="importance-box">
+                        <h4 class="importance-title"><i class="fas fa-chart-line"></i> Importancia:</h4>
+                        <ul class="responsibility-list">
+                            <li><strong>Dirección y enfoque:</strong> Asegura que todos los involucrados en la ejecución de un proyecto o proceso tengan claridad sobre el objetivo y las acciones que deben tomar.</li>
+                            <li><strong>Monitoreo y control:</strong> Permite hacer un seguimiento del progreso y realizar ajustes si es necesario para garantizar que se logren los objetivos.</li>
+                            <li><strong>Prevención de crisis:</strong> Los planes de contingencia ayudan a minimizar los impactos de situaciones imprevistas, protegiendo los intereses de la organización.</li>
+                            <li><strong>Mejora continua:</strong> A través de la evaluación periódica, se pueden identificar oportunidades de mejora y optimizar futuros planes y procesos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="authorization-box reveal">
+                <div class="authorization-title"><i class="fas fa-user-check"></i> Autorización para Documentos Operativos:</div>
+                <p>Requiere la aprobación autógrafa de:</p>
+                <ul class="responsibility-list">
+                    <li>Elaborador (Gestor Documental)</li>
+                    <li>Revisor (Dueño del proceso)</li>
+                    <li>Autorizador (Dirección General Operativa)</li>
+                    <li>Visto Bueno (Auditoría u otra área que participe en el proceso cuando aplique)</li>
+                </ul>
+            </div>
+            
+            <!-- Pregunta interactiva 1 -->
+            <div class="quiz-container reveal">
+                <div class="quiz-question">¿Qué tipo de documento responde específicamente a la pregunta "¿Cómo se hace?"?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="true">Procedimientos Operativos (POP)</div>
+                    <div class="quiz-option" data-correct="false">Manual de Políticas y Lineamientos Generales</div>
+                    <div class="quiz-option" data-correct="false">Formatos de Registro</div>
+                    <div class="quiz-option" data-correct="false">Comunicados</div>
+                </div>
+                <div class="quiz-feedback">
+                    <strong id="feedbackText"></strong>
+                </div>
+            </div>
+            
+            <!-- Pregunta interactiva 2 -->
+            <div class="quiz-container reveal">
+                <div class="quiz-question">¿Cuál es la principal diferencia entre un Procedimiento Operativo y una Guía Operativa?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="false">Los procedimientos son obligatorios y las guías son opcionales</div>
+                    <div class="quiz-option" data-correct="true">Los procedimientos describen procesos completos y las guías se enfocan en actividades específicas</div>
+                    <div class="quiz-option" data-correct="false">Los procedimientos son para uso interno y las guías para clientes</div>
+                    <div class="quiz-option" data-correct="false">Los procedimientos requieren aprobación y las guías no</div>
+                </div>
+                <div class="quiz-feedback">
+                    <strong id="feedbackText"></strong>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección Documentación de Soporte -->
+        <section id="support" class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-folder-open section-icon"></i>
+                Tercer Nivel: Documentación de Soporte
+            </h2>
+            
+            <div class="highlight reveal">
+                <p>El Tercer Nivel corresponde a la Documentación de Soporte, que respalda y complementa la información de los niveles superiores. Esta documentación es fundamental para el registro y seguimiento de las actividades organizacionales.</p>
+                <p>La Documentación de Soporte permite una mejor gestión de la información, facilita el cumplimiento normativo y proporciona un medio para la auditoría y verificación de procesos.</p>
+            </div>
+            
+            <div class="document-type-card reveal">
+                <div class="document-type-header">
+                    <h3>Anexos</h3>
+                    <span class="document-key">ANE</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>Propósito:</strong> Un Anexo es un documento adicional que se incluye en un informe, manual, procedimiento o plan, con el propósito de complementar o proporcionar detalles adicionales sobre un tema específico. Los anexos contienen información que respalda el contenido principal del documento, pero que no es esencial para la comprensión general del texto. Su función es proporcionar datos, ejemplos, referencias, ilustraciones o cualquier otro tipo de material que amplíe la información presentada en el cuerpo del documento principal sin sobrecargarlo.</p>
+                    <p><strong>Contenido:</strong> Información que respalda el contenido principal del documento, como tablas extensas, gráficos detallados, formularios complementarios, documentación técnica adicional o cualquier material de referencia que enriquezca la comprensión del tema principal.</p>
+                    
+                    <div class="importance-box">
+                        <h4 class="importance-title"><i class="fas fa-chart-line"></i> Importancia:</h4>
+                        <ul class="responsibility-list">
+                            <li><strong>Claridad y concisión:</strong> Permite que el documento principal se mantenga claro y directo, mientras que la información adicional queda disponible en los anexos para quienes la necesiten.</li>
+                            <li><strong>Soporte y evidencia:</strong> Ofrece evidencia adicional que respalda las decisiones y conclusiones del documento principal, proporcionando mayor credibilidad.</li>
+                            <li><strong>Organización:</strong> Facilita la organización de documentos extensos, permitiendo que se mantenga el enfoque en los temas clave, mientras se brindan detalles completos y accesibles en los anexos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="document-type-card reveal">
+                <div class="document-type-header">
+                    <h3>Formatos</h3>
+                    <span class="document-key">FOR</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>Propósito:</strong> Un Formato para Registro es un documento estandarizado utilizado para capturar, organizar y almacenar información de manera sistemática y ordenada durante la ejecución de un proceso o actividad. Su propósito principal es facilitar la recopilación de datos relevantes, asegurando que estos sean registrados de manera coherente, precisa y conforme a los lineamientos establecidos en los procedimientos o normativas de la organization.</p>
+                    <p><strong>Contenido:</strong> Estructuras estandarizadas para registro de datos, campos específicos para capturar información, instrucciones de llenado, espacios para firmas y fechas, y cualquier elemento necesario para documentar adecuadamente una actividad o transacción.</p>
+                    
+                    <div class="importance-box">
+                        <h4 class="importance-title"><i class="fas fa-chart-line"></i> Importancia:</h4>
+                        <ul class="responsibility-list">
+                            <li><strong>Cumplimiento normativo:</strong> Los formatos de registro aseguran que la información requerida por normativas o regulaciones sea recopilada de manera precisa y adecuada.</li>
+                            <li><strong>Organización y eficiencia:</strong> Facilitan la recopilación de información en un formato estructurado, reduciendo el riesgo de errores y omisiones.</li>
+                            <li><strong>Facilita auditorías y verificaciones:</strong> Al estar estandarizados, permiten que se realicen auditorías y revisiones de manera más ágil y eficiente, asegurando la transparencia de las operaciones.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="document-type-card reveal">
+                <div class="document-type-header">
+                    <h3>Instructivos de Llenado</h3>
+                    <span class="document-key">IDY</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>Propósito:</strong> Un Instructivo de Llenado es un documento que proporciona instrucciones claras y detalladas sobre cómo completar correctamente un formulario, formato o registro específico dentro de un proceso o actividad organizacional. Su propósito es garantizar que la información se capture de manera coherente, precisa y de acuerdo con los lineamientos establecidos, minimizando errores y asegurando la calidad de los datos registrados.</p>
+                    <p><strong>Contenido:</strong> Pasos detallados para el correcto llenado de documentos, explicaciones sobre cada campo del formato, ejemplos de llenado correcto e incorrecto, criterios de validación y cualquier información necesaria para garantizar la consistencia en la captura de información.</p>
+                    
+                    <div class="importance-box">
+                        <h4 class="importance-title"><i class="fas fa-chart-line"></i> Importancia:</h4>
+                        <ul class="responsibility-list">
+                            <li><strong>Claridad en el proceso:</strong> Asegura que quienes completen los registros comprendan las expectativas y requisitos del formato, lo que mejora la precisión de los datos.</li>
+                            <li><strong>Consistencia y control:</strong> Ayuda a mantener consistencia en la documentación y asegura que todos los formatos se completen de manera adecuada y conforme a los estándares de la organización.</li>
+                            <li><strong>Facilita el proceso de validación y auditoría:</strong> La claridad en el llenado de los documentos permite un proceso de revisión más eficiente y reduce los tiempos dedicados a la corrección de errores.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="document-type-card reveal">
+                <div class="document-type-header">
+                    <h3>Bitácoras</h3>
+                    <span class="document-key">BIT</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>Propósito:</strong> Una Bitácora es un documento utilizado para registrar de manera sistemática y cronológica las actividades, eventos o incidencias relevantes dentro de un proceso o actividad operativa. Su propósito es proporcionar un seguimiento detallado de los eventos ocurridos, permitiendo la trazabilidad y facilitando la revisión de información en caso de auditorías, evaluaciones o acciones correctivas.</p>
+                    <p><strong>Contenido:</strong> Seguimiento detallado de eventos ocurridos, registros cronológicos de actividades, observaciones, incidencias, responsables involucrados, fechas y horarios específicos, y cualquier información relevante para el monitoreo continuo de un proceso.</p>
+                    
+                    <div class="importance-box">
+                        <h4 class="importance-title"><i class="fas fa-chart-line"></i> Importancia:</h4>
+                        <ul class="responsibility-list">
+                            <li><strong>Precisión en el seguimiento:</strong> Asegura que todas las acciones sean documentadas correctamente, lo que facilita la toma de decisiones y la gestión de los procesos.</li>
+                            <li><strong>Control de calidad:</strong> La bitácora proporciona un registro claro de las actividades y decisiones, lo que es crucial para el análisis y la mejora continua de los procesos dentro de la organización.</li>
+                            <li><strong>Trazabilidad:</strong> Permite reconstruir eventos pasados para análisis de causas raíz o para cumplir con requisitos regulatorios.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="document-type-card reveal">
+                <div class="document-type-header">
+                    <h3>Listados</h3>
+                    <span class="document-key">LIS</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>Propósito:</strong> Un Listado es un documento que agrupa, organiza y presenta información de manera estructurada sobre elementos o componentes relacionados con un tema o actividad específica. Su propósito es facilitar el acceso, la búsqueda y la gestión de datos, permitiendo una visión clara y ordenada de los elementos que se registran. Los listados son útiles para realizar seguimientos, auditorías o verificaciones de información dentro de procesos operativos.</p>
+                    <p><strong>Contenido:</strong> Clasificación de elementos según criterios específicos, información organizada en columnas y filas, datos maestros, inventarios, directorios, o cualquier conjunto de información que requiera ser presentada de manera tabular para facilitar su consulta y análisis.</p>
+                    
+                    <div class="importance-box">
+                        <h4 class="importance-title"><i class="fas fa-chart-line"></i> Importancia:</h4>
+                        <ul class="responsibility-list">
+                            <li><strong>Organización:</strong> El listado proporcionas una estructura clara y ordenada, facilitando la gestión de información y asegurando que todos los elementos sean registrados adecuadamente.</li>
+                            <li><strong>Transparencia:</strong> Permite una visualización completa de los elementos involucrados, lo que puede facilitar auditorías y revisiones.</li>
+                            <li><strong>Eficiencia:</strong> La organización sistemática de la información en listados permite optimizar el tiempo y los recursos al facilitar la toma de decisiones y el seguimiento de actividades.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="document-type-card reveal">
+                <div class="document-type-header">
+                    <h3>Catálogos</h3>
+                    <span class="document-key">CAT</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>Propósito:</strong> Un Catálogo es un documento o herramienta que organiza y presenta una lista detallada de productos, servicios, materiales o recursos disponibles, clasificados según diferentes criterios. Su propósito es facilitar la identificación, consulta y adquisición de los elementos que se ofrecen, sirviendo como una guía o referencia para usuarios internos o externos.</p>
+                    <p><strong>Contenido:</strong> Lista organizada de elementos con sus características, especificaciones técnicas, precios, códigos de identificación, disponibilidad, y cualquier información relevante para la selección y uso de los elementos catalogados.</p>
+                    
+                    <div class="importance-box">
+                        <h4 class="importance-title"><i class="fas fa-chart-line"></i> Importancia:</h4>
+                        <ul class="responsibility-list">
+                            <li><strong>Organización:</strong> Los catálogos ayudan a estructurar y presentar información de manera clara, lo que facilita la consulta y la toma de decisiones.</li>
+                            <li><strong>Eficiencia operativa:</strong> Facilitan el acceso rápido a la información, reduciendo el tiempo que se pierde en la búsqueda de elementos.</li>
+                            <li><strong>Soporte para auditorías:</strong> Los catálogos, al estar documentados y organizados, permiten realizar auditorías más eficientes de inventarios, servicios o recursos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="document-type-card reveal">
+                <div class="document-type-header">
+                    <h3>Instrucciones de Operación</h3>
+                    <span class="document-key">IDO</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>Propósito:</strong> Las Instrucciones de Operación son documentos que proporcionan directrices detalladas sobre cómo realizar una tarea, actividad o proceso específico dentro de una operación organizacional. Están diseñadas para guiar al personal en la ejecución precisa y segura de sus responsabilidades operativas, asegurando que se sigan los estándares establecidos, se utilicen los recursos adecuados y se minimicen los riesgos asociados. Estas instrucciones son esenciales para mantener la eficiencia, calidad y seguridad en la operación.</p>
+                    <p><strong>Contenido:</strong> Procedimientos paso a paso para operar equipos o realizar actividades, especificaciones técnicas, medidas de seguridad, puntos de verificación, y cualquier información necesaria para garantizar que las operaciones se realicen de manera correcta y segura.</p>
+                    
+                    <div class="importance-box">
+                        <h4 class="importance-title"><i class="fas fa-chart-line"></i> Importancia:</h4>
+                        <ul class="responsibility-list">
+                            <li><strong>Seguridad operativa:</strong> Garantiza que las actividades se realicen siguiendo protocolos establecidos que minimizan riesgos.</li>
+                            <li><strong>Consistencia en la ejecución:</strong> Asegura que diferentes operadores realicen las mismas tareas de manera uniforme.</li>
+                            <li><strong>Capacitación efectiva:</strong> Sirve como herramienta fundamental para entrenar nuevo personal.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="document-type-card reveal">
+                <div class="document-type-header">
+                    <h3>Hoja de Verificación</h3>
+                    <span class="document-key">HOV</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>Propósito:</strong> La Hoja de Verificación o Checklist es un documento que contiene una lista de elementos o pasos específicos que deben ser revisados, cumplidos o verificados durante la ejecución de un proceso o actividad. Está diseñada para garantizar que todas las tareas o requisitos importantes sean considerados y completados de acuerdo con las especificaciones, estándares o normativas establecidas. Las hojas de verificación son herramientas útiles para controlar la calidad, asegurar el cumplimiento de procedimientos y facilitar la revisión de procesos complejos.</p>
+                    <p><strong>Contenido:</strong> Lista de verificación con items específicos a revisar, criterios de aceptación, espacios para marcar cumplimiento, observaciones, y firmas de validación cuando sea necesario.</p>
+                    
+                    <div class="importance-box">
+                        <h4 class="importance-title"><i class="fas fa-chart-line"></i> Importancia:</h4>
+                        <ul class="responsibility-list">
+                            <li><strong>Control de calidad:</strong> Asegura que todos los aspectos críticos sean verificados sistemáticamente.</li>
+                            <li><strong>Prevención de errores:</strong> Reduce la probabilidad de omisiones en procesos complejos.</li>
+                            <li><strong>Estandarización:</strong> Garantiza que las verificaciones se realicen de manera consistente por diferentes personas.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>   
+
+            <div class="document-type-card reveal">
+                <div class="document-type-header">
+                    <h3>Ayuda Visual</h3>
+                    <span class="document-key">AVI</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>Propósito:</strong> La Ayuda Visual es un documento o material que utiliza imágenes, gráficos, diagramas o ilustraciones para proporcionar apoyo en la comprensión de un proceso, actividad o concepto. Su propósito es facilitar la comprensión rápida de instrucciones o información compleja, simplificando el aprendizaje y la ejecución de tareas mediante representaciones visuales claras и accesibles. Las ayudas visuales son especialmente útiles para audiencias que prefieren o requieren información presentada de manera visual para asegurar una comprensión efectiva.</p>
+                    <p><strong>Contenido:</strong> Diagramas de flujo, infografías, esquemas, fotografías, ilustraciones técnicas, mapas conceptuales, y cualquier representación gráfica que facilite la comprensión de información compleja.</p>
+                    
+                    <div class="importance-box">
+                        <h4 class="importance-title"><i class="fas fa-chart-line"></i> Importancia:</h4>
+                        <ul class="responsibility-list">
+                            <li><strong>Facilita la comprensión:</strong> Las representaciones visuales hacen que la información compleja sea más accesible y fácil de entender.</li>
+                            <li><strong>Mejora la retención:</strong> La información visual suele ser más memorable que el texto solo.</li>
+                            <li><strong>Eficiencia en la comunicación:</strong> Permite transmitir conceptos complejos de manera rápida y efectiva.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>   
+
+            <div class="document-type-card reveal">
+                <div class="document-type-header">
+                    <h3>Comunicado</h3>
+                    <span class="document-key">COM</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>Propósito:</strong> Un Comunicado es un documento escrito que se utiliza para transmitir información importante, actualizaciones o anuncios dentro de una organización o hacia un público externo. Su propósito es informar de manera clara y concisa sobre eventos, decisiones, cambios o situaciones relevantes que requieran la atención de los destinatarios. Los comunicados se utilizan para asegurar que todos los interesados reciban el mismo mensaje y puedan actuar en consecuencia.</p>
+                    <p><strong>Contenido:</strong> Mensajes oficiales, anuncios importantes, actualizaciones de políticas, información sobre cambios organizacionales, y cualquier comunicación formal que requiera distribución controlada y registro.</p>
+                    
+                    <div class="importance-box">
+                        <h4 class="importance-title"><i class="fas fa-chart-line"></i> Importancia:</h4>
+                        <ul class="responsibility-list">
+                            <li><strong>Comunicación formal:</strong> Establece un canal oficial para transmitir información importante.</li>
+                            <li><strong>Consistencia del mensaje:</strong> Garantiza que todos los receptores obtengan la misma información.</li>
+                            <li><strong>Registro documental:</strong> Proporciona evidencia de que la información fue comunicada oficialmente.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>   
+
+            <div class="document-type-card reveal">
+                <div class="document-type-header">
+                    <h3>Registro</h3>
+                    <span class="document-key">REG</span>
+                </div>
+                <div class="card-content">
+                    <p><strong>Propósito:</strong> Un Registro es un documento o archivo utilizado para registrar información de manera sistemática y ordenada, con el propósito de llevar un control detallado de actividades, eventos o datos específicos dentro de una organización. Los registros son esenciales para garantizar el seguimiento, la auditoría y la verificación de procesos y actividades, proporcionando evidencia de lo ocurrido, con lo que se respalda la toma de decisiones y el cumplimiento de normativas.</p>
+                    <p><strong>Contenido:</strong> Datos históricos de operaciones, transacciones, actividades realizadas, evidencias de cumplimiento, resultados de mediciones, y cualquier información que deba conservarse como prueba de que una actividad se realizó conforme a los procedimientos establecidos.</p>
+                    
+                    <div class="importance-box">
+                        <h4 class="importance-title"><i class="fas fa-chart-line"></i> Importancia:</h4>
+                        <ul class="responsibility-list">
+                            <li><strong>Evidencia documental:</strong> Proporciona prueba tangible de que los procesos se ejecutaron según lo establecido.</li>
+                            <li><strong>Trazabilidad:</strong> Permite reconstruir eventos pasados para análisis o auditorías.</li>
+                            <li><strong>Cumplimiento normativo:</strong> Muchas regulaciones requieren el mantenimiento de registros específicos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>  
+         
+            <div class="authorization-box reveal">
+                <div class="authorization-title"><i class="fas fa-user-check"></i> Autorización para Documentos de Soporte:</div>
+                <p>Generalmente, estos documentos no requieren autorización, salvo en casos específicos donde la naturaleza del documento así lo demande.</p>
+            </div>
+            
+            <!-- Pregunta interactiva 1 -->
+            <div class="quiz-container reveal">
+                <div class="quiz-question">¿Cuál de estos documentos de soporte se utiliza específicamente para registrar información de manera cronológica sobre eventos ocurridos?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="false">Formatos</div>
+                    <div class="quiz-option" data-correct="false">Catálogos</div>
+                    <div class="quiz-option" data-correct="true">Bitácoras</div>
+                    <div class="quiz-option" data-correct="false">Anexos</div>
+                </div>
+                <div class="quiz-feedback">
+                    <strong id="feedbackText"></strong>
+                </div>
+            </div>
+            
+            <!-- Pregunta interactiva 2 -->
+            <div class="quiz-container reveal">
+                <div class="quiz-question">¿Qué tipo de documento de soporte se utiliza para proporcionar instrucciones detalladas sobre cómo completar correctamente un formulario?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="false">Bitácoras</div>
+                    <div class="quiz-option" data-correct="true">Instructivos de Llenado</div>
+                    <div class="quiz-option" data-correct="false">Listados</div>
+                    <div class="quiz-option" data-correct="false">Ayudas Visuales</div>
+                </div>
+                <div class="quiz-feedback">
+                    <strong id="feedbackText"></strong>
+                </div>
+            </div>
+        </section>
+        
+        
+        <!-- Sección Roles y Responsabilidades -->
+        <section id="roles" class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-users section-icon"></i>
+                Roles y Responsabilidades en la Gestión de la Normatividad Interna
+            </h2>
+            
+            <div class="highlight reveal">
+                <p>La gestión documental es fundamental para el funcionamiento ordenado y seguro de cualquier organización, permitiendo que los procesos estén claramente definidos y alineados con los objetivos estratégicos. En este sentido, se definen tres roles clave en la gestión documental: el Dueño del Proceso (Director del Área), el Gestor Documental (personal designado) y el equipo de Control Interno (Contraloría).</p>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-user-tie arrow"></i>
+                    7.1.2.1 Dueño del Proceso
+                </h3>
+                <div class="card-content">
+                    <p>El Director del Área, en su rol de "Dueño del Proceso", es responsable de la gestión estratégica de la documentación y los procedimientos de su área. Esta responsabilidad implica asegurar que la documentación se alinee continuamente con la misión, visión y objetivos de la organización, y con las políticas y normativas aplicables.</p>
+                    
+                    <h4>Responsabilidades del Dueño del Proceso:</h4>
+                    <ul class="responsibility-list">
+                        <li><strong>Supervisión Estratégica y Alineación Organizacional:</strong> Asegurar que todos los documentos y procedimientos estén alineados con los objetivos organizacionales y contribuyan a la eficiencia y eficacia de los procesos del área.</li>
+                        <li><strong>Aprobación de Documentación:</strong> Revisar y dar validez a la documentación de su área antes de su implementación para garantizar que esté actualizada, refleje la operación vigente y sea coherente con la estructura orgánica.</li>
+                        <li><strong>Coordinación Interdepartamental:</strong> Establecer y mantener una comunicación fluida y efectiva con otras áreas, facilitando la colaboración y asegurando que la documentación refleje adecuadamente los aportes y requisitos de todas las áreas involucradas.</li>
+                        <li><strong>Promoción de Mejores Prácticas en Gestión Documental:</strong> Fomentar una cultura de gestión documental proactiva, eficiente y colaborativa en su equipo.</li>
+                        <li><strong>Punto de Contacto para el Equipo:</strong> Fomentar la elaboración precisa y completa de la documentación, impulsando a su equipo a desarrollar documentos claros, consistentes y alineados desde el inicio con los estándares de calidad de la organización.</li>
+                        <li><strong>Gestión de Riesgos y Reporte a la Segunda y Tercera Línea de Defensa (2LD/3LD):</strong> Identificar, monitorear y reporte de forma proactiva los eventos de riesgo o pérdida que puedan impactar la efectividad de los procesos o la confiabilidad de la información documentada.</li>
+                        <li><strong>Evaluación y Mejora Continua de la Documentación:</strong> Realizar revisiones periódicas de la relevancia, eficacia y claridad de los documentos, implementando ajustes cuando sea necesario.</li>
+                        <li><strong>Control de Vigencia y Relevancia Documental:</strong> Coordinar la creación, actualización y eliminación de documentos para asegurar que el contenido de cada documento esté vigente, sea relevante y esté disponible de forma accesible y controlada.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-user-cog arrow"></i>
+                    7.1.2.2 Gestor Documental
+                </h3>
+                <div class="card-content">
+                    <p>El "Gestor Documental" es el personal designado por el Director del Área ("Dueño del Proceso") para gestionar y ejecutar las actividades operativas diarias relacionadas con la documentación. Este rol es clave para asegurar que la documentación de los procesos esté siempre actualizada, precisa y alineada con las necesidades operativas y cualquier cambio relevante.</p>
+                    
+                    <h4>Responsabilidades del Gestor Documental:</h4>
+                    <ul class="responsibility-list">
+                        <li><strong>Elaboración y Actualización de Documentación:</strong> Ser el principal responsable de la creación, definición y actualización de la documentación que describe las actividades y procedimientos operativos del área.</li>
+                        <li><strong>Cumplimiento de Lineamientos de Control Interno:</strong> Asegurar que toda la documentación cumpla con los estándares, lineamientos y directrices de Control Interno/Contraloría.</li>
+                        <li><strong>Adaptación y Actualización de la Documentación ante Cambios:</strong> Comunicar y registrar de manera oportuna cualquier cambio en los procesos operativos, revisando y actualizando la documentación para reflejar las modificaciones cuando se requiera.</li>
+                        <li><strong>Monitoreo y Evaluación del Desempeño Documental:</strong> Monitorear la eficacia y eficiencia de los procedimientos documentados, identificando oportunidades de mejora en la operación.</li>
+                        <li><strong>Gestión de la Vigencia de Documentos:</strong> Proponer, gestionar y ejecutar la creación, actualización y eliminación de documentos cuando sea necesario para reflejar cambios operativos, normativos o de la estructura orgánica.</li>
+                        <li><strong>Colaboración y Solicitud de Revisión:</strong> Solicitar revisiones o asesoramiento del área de Control Interno en la elaboración y actualización de documentos, cuando sea necesario.</li>
+                        <li><strong>Gestión de Riesgos en Documentación:</strong> Apoyar en la identificación, evaluación, control y mitigación de los eventos de riesgo detectados en el proceso documentado.</li>
+                        <li><strong>Comunicación de Eventos de Riesgo y Pérdida (Quebrantos):</strong> Informar de manera proactiva al Dueño del Proceso sobre cualquier evento de riesgo o pérdida (quebranto) que pueda comprometer la integridad del proceso o el cumplimiento de los objetivos.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-user-friends arrow"></i>
+                    7.1.2.3 Participantes del Proceso
+                </h3>
+                <div class="card-content">
+                    <p>En el proceso de gestión documental, además de los roles del "Dueño del Proceso," el "Gestor Documental," y el "Equipo de Control Interno (Contraloría)," existen otros participantes clave que desempeñan un papel esencial en la coordinación y apoyo durante la elaboración y revisión de documentos.</p>
+                    
+                    <h4>Responsabilidades del Participante del Proceso:</h4>
+                    <ul class="responsibility-list">
+                        <li><strong>Revisión desde el Ámbito de Competencia:</strong> Revisar el documento desde la perspectiva específica de su competencia, realizando un análisis detallado para asegurar que el contenido sea adecuado y cumpla con los estándares, normativas y requisitos específicos del área.</li>
+                        <li><strong>Validación de Estándares y Cumplimiento de Requisitos:</strong> Verificar que el documento cumpla rigurosamente con los lineamientos internos y externos aplicables, así como con los estándares y requisitos relevantes a sus funciones y áreas de responsabilidad.</li>
+                        <li><strong>Evaluación de Impacto y Relación con el Área:</strong> Evaluar cómo el documento afecta o se relaciona con los procesos y la operatividad del área.</li>
+                        <li><strong>Colaboración Interdepartamental:</strong> Colaborar activamente con el Dueño del Proceso y el Gestor Documental para asegurar que el proceso documentado esté alineado con la operatividad actual, evitando contradicciones.</li>
+                        <li><strong>Visto Bueno del Documento:</strong> Otorgar el Visto Bueno (VoBo) al documento, asegurando que cumple con todos los requisitos, se alinea con la operatividad de cada área y contribuye al cumplimiento de los objetivos organizacionales.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-shield-alt arrow"></i>
+                    7.1.2.4 Equipo de Control Interno (Contraloría)
+                </h3>
+                <div class="card-content">
+                    <p>El "equipo de Control Interno" de Contraloría desempeña un papel estratégico en la administración, revisión, acompañamiento y mejora continua de la gestión documental en la organización. A través de una perspectiva integral de control interno, asegura que la documentación cumpla con los estándares de calidad y normatividad, mientras contribuye a identificar riesgos y establecer controles mitigatorios en los procesos documentales.</p>
+                    
+                    <h4>Responsabilidades del Equipo de Control Interno:</h4>
+                    <ul class="responsibility-list">
+                        <li><strong>Gestión y Actualización Documental:</strong> Asesorar a los equipos en la creación y actualización de sus documentos, asegurando que los documentos normativos sean elaborados, revisados, actualizados y difundidos de manera oportuna, precisa y conforme a los lineamientos internos.</li>
+                        <li><strong>Control de Riesgos y Monitoreo de Procesos:</strong> Colaborar en la identificación, evaluación y mitigación de riesgos asociados a los procesos documentales, así como en el diseño y monitoreo de KPIs relevantes junto con los dueños de proceso.</li>
+                        <li><strong>Asesoría y Capacitación en Mejores Prácticas Documentales:</strong> Proveer orientación sobre prácticas óptimas de documentación, incluyendo la precisión, coherencia y relevancia de los documentos, además de capacitar a los empleados en gestión documental y riesgos asociados.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-balance-scale arrow"></i>
+                    Diferencias Clave entre Dueño del Proceso y Gestor Documental
+                </h3>
+                <div class="card-content">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Aspecto</th>
+                                <th>Dueño del Proceso</th>
+                                <th>Gestor Documental</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Rol y Enfoque Estratégico</td>
+                                <td>Responsable estratégico del proceso. Garantiza alineación con objetivos organizacionales.</td>
+                                <td>Rol operativo. Encargado de ejecutar y mantener la documentación en su área.</td>
+                            </tr>
+                            <tr>
+                                <td>Responsabilidad en Aprobación</td>
+                                <td>Autoridad para aprobar documentación final antes de implementación.</td>
+                                <td>Responsable de crear y actualizar documentos, pero necesita aprobación del Dueño.</td>
+                            </tr>
+                            <tr>
+                                <td>Coordinación</td>
+                                <td>Facilita comunicación y coordinación entre áreas para documentación completa.</td>
+                                <td>Gestiona con áreas involucradas para alinear acciones al mismo objetivo.</td>
+                            </tr>
+                            <tr>
+                                <td>Identificación de Riesgos</td>
+                                <td>Monitorea ciclo de vida del proceso para identificar riesgos a nivel estratégico.</td>
+                                <td>Apoya en identificación y mitigación de riesgos operativos específicos.</td>
+                            </tr>
+                            <tr>
+                                <td>Mejora Continua</td>
+                                <td>Revisa efectividad de documentación a nivel global y estratégico.</td>
+                                <td>Monitorea desempeño y reporta desviaciones, proponiendo actualizaciones.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="highlight">
+                        <p><strong>En resumen:</strong> El Dueño del Proceso tiene una responsabilidad estratégica con un enfoque en la supervisión y alineación de los objetivos organizacionales, mientras que el Gestor Documental se enfoca en la ejecución operativa, garantizando que la documentación esté actualizada y cumpla con los estándares de calidad en el día a día.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pregunta interactiva 1 -->
+            <div class="quiz-container reveal">
+                <div class="quiz-question">¿Cuál es la principal diferencia entre el Dueño del Proceso y el Gestor Documental?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="false">El Dueño del Proceso se enfoca en detalles operativos mientras el Gestor Documental tiene una visión estratégica</div>
+                    <div class="quiz-option" data-correct="true">El Dueño del Proceso tiene responsabilidad estratégica mientras el Gestor Documental se enfoca en la ejecución operativa</div>
+                    <div class="quiz-option" data-correct="false">El Gestor Documental aprueba la documentación final mientras el Dueño del Proceso solo la revisa</div>
+                    <div class="quiz-option" data-correct="false">No hay diferencias significativas entre ambos roles</div>
+                </div>
+                <div class="quiz-feedback">
+                    <strong id="feedbackText"></strong>
+                </div>
+            </div>
+            
+            <!-- Pregunta interactiva 2 -->
+            <div class="quiz-container reveal">
+                <div class="quiz-question">¿Qué rol es responsable de otorgar el Visto Bueno (VoBo) a los documentos?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="false">Dueño del Proceso</div>
+                    <div class="quiz-option" data-correct="false">Gestor Documental</div>
+                    <div class="quiz-option" data-correct="true">Participantes del Proceso</div>
+                    <div class="quiz-option" data-correct="false">Equipo de Control Interno</div>
+                </div>
+                <div class="quiz-feedback">
+                    <strong id="feedbackText"></strong>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección Estructura y Contenido de Documentos -->
+        <section id="structure" class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-file-alt section-icon"></i>
+                Estructura y Contenido de los Documentos
+            </h2>
+            
+            <div class="highlight reveal">
+                <p>Esta sección establece la estructura estándar que deben seguir todos los documentos normativos de la organización, garantizando consistencia, claridad y completitud en la documentación de procesos.</p>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-bullseye arrow"></i>
+                    I. Objetivo
+                </h3>
+                <div class="card-content">
+                    <p>Establece la finalidad principal del proceso documentado, describiendo el propósito y los resultados esperados de su ejecución en términos operativos.</p>
+                    
+                    <h4>Directrices:</h4>
+                    <div class="guidelines-grid">
+                        <div class="guideline-card">
+                            <div class="guideline-title"><i class="fas fa-crosshairs"></i> Enfocarse en el Propósito Final</div>
+                            <p>El "Objetivo" debe responder a la pregunta "¿Qué se busca lograr mediante la ejecución de este proceso?"</p>
+                        </div>
+                        <div class="guideline-card">
+                            <div class="guideline-title"><i class="fas fa-file-alt"></i> Evitar Referencias al Documento</div>
+                            <p>No incluir expresiones como "este documento", "las directrices", o "los lineamientos".</p>
+                        </div>
+                        <div class="guideline-card">
+                            <div class="guideline-title"><i class="fas fa-running"></i> Usar Verbos de Acción</div>
+                            <p>Emplear verbos como "garantizar", "optimizar", "fortalecer", "asegurar", "mejorar".</p>
+                        </div>
+                        <div class="guideline-card">
+                            <div class="guideline-title"><i class="fas fa-chart-line"></i> Describir el Beneficio</div>
+                            <p>Expresar en qué medida el proceso contribuye a mejorar la operación o el cumplimiento normativo.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="example-box example-incorrect">
+                        <div class="example-title"><i class="fas fa-times-circle"></i> Incorrecto:</div>
+                        <p>"Establecer los lineamientos para la validación de documentos en el proceso de aprobación de proveedores, asegurando consistencia y cumplimiento normativo".</p>
+                    </div>
+                    
+                    <div class="example-box example-correct">
+                        <div class="example-title"><i class="fas fa-check-circle"></i> Correcto:</div>
+                        <p>"Asegurar que el proceso de aprobación de proveedores cumpla con los estándares de consistencia y las normativas aplicables, garantizando una selección adecuada y conforme a las regulaciones".</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-arrows-alt-h arrow"></i>
+                    II. Alcance
+                </h3>
+                <div class="card-content">
+                    <p>Describe el ámbito y los límites del proceso documentado, especificando qué unidad de negocio, áreas, departamentos, o colaboradores están involucrados.</p>
+                    
+                    <h4>Directrices:</h4>
+                    <ul class="responsibility-list">
+                        <li>Definir el ámbito de aplicación</li>
+                        <li>Establecer límites claros</li>
+                        <li>Evitar detalles operativos específicos</li>
+                        <li>Alinear el alcance con los objetivos del proceso</li>
+                        <li>Incluir resultados o beneficios esperados</li>
+                        <li>Ser claro, preciso y conciso</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-book arrow"></i>
+                    III. Referencias
+                </h3>
+                <div class="card-content">
+                    <p>Incluye y enlista los documentos internos relacionados con el proceso, así como fuentes externas como leyes, metodologías, normativas, guías y estándares.</p>
+                    
+                    <h4>Directrices:</h4>
+                    <ul class="responsibility-list">
+                        <li>Incluir documentos internos relacionados</li>
+                        <li>Incluir fuentes externas relevantes</li>
+                        <li>Evitar detalles operativos</li>
+                        <li>Asegurar la accesibilidad</li>
+                        <li>Mantener relevancia de las fuentes</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-book-open arrow"></i>
+                    IV. Definiciones
+                </h3>
+                <div class="card-content">
+                    <p>Incluye las explicaciones claras y precisas de los términos, acrónimos o conceptos específicos utilizados en el documento.</p>
+                    
+                    <h4>Directrices:</h4>
+                    <ul class="responsibility-list">
+                        <li>Claridad y precisión</li>
+                        <li>Evitar circularidad</li>
+                        <li>Contextualización</li>
+                        <li>Incluir solo términos relevantes</li>
+                        <li>Concisión</li>
+                        <li>Uso de ejemplos cuando sea necesario</li>
+                        <li>Aplicabilidad</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-user-check arrow"></i>
+                    V. Responsabilidades y Autoridad
+                </h3>
+                <div class="card-content">
+                    <p>Establece de manera clara las funciones generales que deben asumir las personas o áreas involucradas en un proceso, así como el nivel de poder que tienen para tomar decisiones.</p>
+                    
+                    <h4>Directrices:</h4>
+                    <ul class="responsibility-list">
+                        <li>Claridad y precisión</li>
+                        <li>Diferenciación por nivel jerárquico</li>
+                        <li>Enfoque en responsabilidades generales</li>
+                        <li>Segregación de funciones</li>
+                        <li>Autoridad adecuada</li>
+                        <li>Consistencia organizacional</li>
+                        <li>Concisión</li>
+                        <li>Alineación con los objetivos</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-gavel arrow"></i>
+                    VI. Políticas y Lineamientos
+                </h3>
+                <div class="card-content">
+                    <p>Establece las reglas y directrices que orientan el desarrollo del proceso documentado, garantizando que las actividades se realicen de acuerdo con los principios organizacionales.</p>
+                    
+                    <h4>Elementos que debe contener cada norma o regla:</h4>
+                    <ul class="responsibility-list">
+                        <li><strong>Enunciado de obligatoriedad:</strong> Usar verbos que expresen mandato ("Debe", "Deberá", "Es obligatorio")</li>
+                        <li><strong>Sujeto responsable:</strong> Definir con claridad quién está obligado a cumplir la norma</li>
+                        <li><strong>Acción o comportamiento exigido:</strong> Indicar exactamente qué se espera que el sujeto haga o evite</li>
+                        <li><strong>Ámbito de aplicación o contexto:</strong> Establecer a quiénes aplica y en qué situaciones</li>
+                        <li><strong>Momento o frecuencia de cumplimiento:</strong> Determinar cuándo debe aplicarse la norma</li>
+                        <li><strong>Consecuencias por incumplimiento (opcional):</strong> Señalar de forma general las consecuencias</li>
+                        <li><strong>Referencia normativa o documental:</strong> Indicar si existe un procedimiento relacionado</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-chart-bar arrow"></i>
+                    VII. Indicadores KPIs
+                </h3>
+                <div class="card-content">
+                    <p>Incluye las métricas clave utilizadas para medir el desempeño del proceso o actividad documentada.</p>
+                    <h4>Directrices basadas en el marco SMART:</h4>
+                    <ul class="responsibility-list">
+                        <li><strong>Específico (Specific):</strong> Claro y detallado, apuntando a una métrica precisa</li>
+                        <li><strong>Medible (Measurable):</strong> Cuantificable, con forma objetiva de medir el desempeño</li>
+                        <li><strong>Alcanzable (Achievable):</strong> Realista, considerando recursos disponibles</li>
+                        <li><strong>Relevante (Relevant):</strong> Importante para los objetivos generales del proceso</li>
+                        <li><strong>Temporal (Time-bound):</strong> Con plazo claro y definido</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-list-ol arrow"></i>
+                    VIII. Descripción del Proceso
+                </h3>
+                <div class="card-content">
+                    <p>Detalla de forma clara y concisa cómo se ejecuta el proceso, especificando los pasos clave de manera secuencial.</p>
+                    
+                    <h4>Directrices:</h4>
+                    <ul class="responsibility-list">
+                        <li>Estructura lógica y ordenada</li>
+                        <li>Numeración clara</li>
+                        <li>Claridad y entendimiento</li>
+                        <li>Evitar excepciones</li>
+                        <li>Responsables definidos</li>
+                        <li>Entradas y salidas especificadas</li>
+                        <li>Consistencia en la terminología</li>
+                        <li>Visibilidad del objetivo</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-project-diagram arrow"></i>
+                    IX. Diagrama de Flujo
+                </h3>
+                <div class="card-content">
+                    <p>Representación visual que muestra de manera secuencial y clara las actividades, decisiones y flujos de un proceso.</p>
+                    
+                    <h4>Directrices:</h4>
+                    <ul class="responsibility-list">
+                        <li>Correlación con la descripción del proceso</li>
+                        <li>Secuencialidad</li>
+                        <li>Reflejar decisiones</li>
+                        <li>Simplicidad</li>
+                        <li>Consistencia de símbolos</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-paperclip arrow"></i>
+                    X. Anexos
+                </h3>
+                <div class="card-content">
+                    <p>Incluye documentos o materiales adicionales que complementan la información del proceso.</p>
+                    
+                    <h4>Directrices:</h4>
+                    <ul class="responsibility-list">
+                        <li>Relevancia</li>
+                        <li>Claridad y organización</li>
+                        <li>Actualización y consistencia</li>
+                        <li>Accesibilidad</li>
+                        <li>Codificación</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-archive arrow"></i>
+                    XI. Registros
+                </h3>
+                <div class="card-content">
+                    <p>Enlista los documentos y archivos específicos generados durante la ejecución del proceso, que sirven como evidencia de las actividades realizadas.</p>
+                    
+                    <h4>Directrices:</h4>
+                    <ul class="responsibility-list">
+                        <li>Documentos físicos</li>
+                        <li>Archivos digitales</li>
+                        <li>Datos almacenados en sistemas</li>
+                        <li>Relevancia</li>
+                        <li>Claridad y organización</li>
+                        <li>Actualización y consistencia</li>
+                        <li>Accesibilidad</li>
+                        <li>Codificación</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-exclamation-triangle arrow"></i>
+                    XII. Matriz Individual de Riesgos y Controles (MIRC)
+                </h3>
+                <div class="card-content">
+                    <p>Presenta una tabla organizada en la que se identifican los riesgos operacionales asociados al proceso y los controles implementados para mitigarlos.</p>
+                    
+                    <h4>Elementos de la MIRC:</h4>
+                    <ul class="responsibility-list">
+                        <li><strong>Proceso:</strong> Fase o etapa del ciclo operativo</li>
+                        <li><strong>Actividad:</strong> Número de actividad en la secuencia del proceso</li>
+                        <li><strong>ID (MaRC):</strong> Número de identificación según la Matriz de Riesgos y Controles Consolidada</li>
+                        <li><strong>Riesgo:</strong> Riesgo asociado al proceso (causa + evento + consecuencia)</li>
+                        <li><strong>Control:</strong> Controles diseñados para mitigar el riesgo identificado</li>
+                        <li><strong>KRI:</strong> Indicador Clave de Riesgo para medir el nivel de exposición</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-code-branch arrow"></i>
+                    XIII. Control de Versiones
+                </h3>
+                <div class="card-content">
+                    <p>Registra y organiza los cambios realizados en el documento a lo largo del tiempo, proporcionando un historial de modificaciones.</p>
+                    
+                    <h4>Elementos del Control de Versiones:</h4>
+                    <ul class="responsibility-list">
+                        <li><strong>Versión:</strong> Número que identifica la actualización específica</li>
+                        <li><strong>Fecha:</strong> Fecha en que se realizó el cambio</li>
+                        <li><strong>Descripción de la Modificación:</strong> Breve explicación del ajuste o adición realizada</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-signature arrow"></i>
+                    XIV. Autorizaciones
+                </h3>
+                <div class="card-content">
+                    <p>Detalla los roles o puestos responsables de aprobar, revisar o validar el contenido del documento.</p>
+                    
+                    <h4>Elementos para Documentos Estratégicos (Primer Nivel):</h4>
+                    <ul class="responsibility-list">
+                        <li><strong>Elaboró:</strong> Responsable de la creación del documento</li>
+                        <li><strong>Revisó:</strong> Responsable del área que verifica cumplimiento de estándares</li>
+                        <li><strong>Aprobó:</strong> Director General Operativo (DGO)</li>
+                    </ul>
+                    
+                    <h4>Elementos para Documentos Operativos (Segundo Nivel):</h4>
+                    <ul class="responsibility-list">
+                        <li><strong>Elaboró:</strong> Persona o rol encargado de la creación</li>
+                        <li><strong>Revisó:</strong> Persona o rol responsable de revisar el contenido</li>
+                        <li><strong>Aprobó:</strong> Director General Operativo (DGO)</li>
+                        <li><strong>Vo.Bo:</strong> Validación formal por áreas con participación activa</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Pregunta interactiva 1 -->
+            <div class="quiz-container reveal">
+                <div class="quiz-question">¿Cuál de las siguientes secciones de un documento establece las reglas y directrices que orientan el desarrollo del proceso?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="false">Objetivo</div>
+                    <div class="quiz-option" data-correct="false">Alcance</div>
+                    <div class="quiz-option" data-correct="true">Políticas y Lineamientos</div>
+                    <div class="quiz-option" data-correct="false">Definiciones</div>
+                </div>
+                <div class="quiz-feedback">
+                    <strong id="feedbackText"></strong>
+                </div>
+            </div>
+            
+            <!-- Pregunta interactiva 2 -->
+            <div class="quiz-container reveal">
+                <div class="quiz-question">¿Qué sección de un documento contiene la representación visual de las actividades, decisiones y flujos de un proceso?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="false">Descripción del Proceso</div>
+                    <div class="quiz-option" data-correct="false">Matriz Individual de Riesgos y Controles</div>
+                    <div class="quiz-option" data-correct="true">Diagrama de Flujo</div>
+                    <div class="quiz-option" data-correct="false">Registros</div>
+                </div>
+                <div class="quiz-feedback">
+                    <strong id="feedbackText"></strong>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección Guía para la Elaboración de Documentos -->
+        <section id="guide" class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-book section-icon"></i>
+                Guía para la Elaboración de Documentos
+            </h2>
+            
+            <div class="highlight reveal">
+                <p>Esta guía es un recurso integral diseñado para el personal que documenta las actividades de su área, proporcionando herramientas y metodologías para la creación, análisis, y mejora continua de todos los tipos de documentos.</p>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-file-contract arrow"></i>
+                    I. Contexto y Fundamentos para la Elaboración de Documentos Normativos
+                </h3>
+                <div class="card-content">
+                    <p>Los documentos normativos se elaboran para establecer las directrices, reglas y apoyos que guiarán las actividades dentro de un área de la organización.</p>
+                    
+                    <h4>Aspectos clave a considerar:</h4>
+                    <ul class="responsibility-list">
+                        <li><strong>Objetivo del Documento:</strong> Definir el propósito del documento normativo</li>
+                        <li><strong>Alcance:</strong> Determinar a quién o qué afectará el documento</li>
+                        <li><strong>Normas y Reglas:</strong> Incluir las normas o directrices a seguir</li>
+                        <li><strong>Responsables:</strong> Definir quiénes serán responsables de implementar y supervisar</li>
+                        <li><strong>Apoyos Necesarios:</strong> Especificar los recursos, sistemas o herramientas necesarias</li>
+                        <li><strong>Frecuencia de Revisión y Actualización:</strong> Establecer la periodicidad de revisión</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-drafting-compass arrow"></i>
+                    II. Análisis y Diseño de Documentos Operativos
+                </h3>
+                <div class="card-content">
+                    <h4>i. Delimitación del Contenido</h4>
+                    <p>Antes de comenzar la elaboración, es esencial definir claramente:</p>
+                    <ul class="responsibility-list">
+                        <li>¿Qué se va a documentar?</li>
+                        <li>¿Dónde inicia y termina el proceso?</li>
+                        <li>¿Qué otras áreas o procesos están involucrados?</li>
+                        <li>¿Cómo se integra este documento con otros procesos?</li>
+                    </ul>
+                    
+                    <h4>ii. Recolección de Información</h4>
+                    <p>Técnicas para obtener información precisa:</p>
+                    <ul class="responsibility-list">
+                        <li><strong>Investigación Documental:</strong> Revisar documentos existentes relacionados</li>
+                        <li><strong>Entrevista Directa:</strong> Reunión con el personal clave involucrado</li>
+                        <li><strong>Observación de Campo:</strong> Observar directamente cómo se lleva a cabo el proceso</li>
+                    </ul>
+                    
+                    <h4>iii. Análisis de la Información y Diseño del Documento</h4>
+                    <p>Responder a las siguientes preguntas ayuda a estructurar el documento:</p>
+                    <ul class="responsibility-list">
+                        <li>¿Qué se hace?</li>
+                        <li>¿Quién lo hace?</li>
+                        <li>¿Cómo se hace?</li>
+                        <li>¿Cuándo se hace?</li>
+                        <li>¿Por qué se hace?</li>
+                    </ul>
+                    
+                    <h4>iv. Rediseño y Mejora del Documento</h4>
+                    <p>Técnica de los cinco puntos para realizar ajustes:</p>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>TÉCNICA DE MEJORA</th>
+                                <th>DESCRIPCIÓN</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Eliminar</td>
+                                <td>Suprimir pasos o secciones innecesarias</td>
+                            </tr>
+                            <tr>
+                                <td>Combinar</td>
+                                <td>Fusionar elementos duplicados o simplificar</td>
+                            </tr>
+                            <tr>
+                                <td>Cambiar</td>
+                                <td>Modificar el orden o estructura del documento</td>
+                            </tr>
+                            <tr>
+                                <td>Mejorar</td>
+                                <td>Ajustar formatos o instrucciones</td>
+                            </tr>
+                            <tr>
+                                <td>Mantener</td>
+                                <td>Conservar aspectos que son efectivos</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="card reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-sync-alt arrow"></i>
+                    III. Mantenimiento y Actualización del Documento
+                </h3>
+                <div class="card-content">
+                    <p>Un documento no debe considerarse estático. Su actualización periódica es crucial para mantenerlo alineado con los cambios en procesos, normativas o tecnologías.</p>
+                    
+                    <h4>Factores que requieren actualización:</h4>
+                    <ul class="responsibility-list">
+                        <li>Cambios en el proceso descrito</li>
+                        <li>Actualizaciones tecnológicas o regulatorias</li>
+                        <li>Modificación en la estructura orgánica</li>
+                        <li>Hallazgos y observaciones de Auditoría y Control Interno</li>
+                        <li>Antigüedad del documento</li>
+                        <li>Nuevos lineamientos de gestión documental</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight reveal">
+                <h4><i class="fas fa-check-circle"></i> Conclusión</h4>
+                <p>La elaboración de documentos operativos, ya sean manuales, procedimientos o documentos de soporte, requiere un enfoque claro y estructurado. Desde la recopilación de información hasta el rediseño y mejora continua, este enfoque asegura que los documentos sean útiles, claros y eficaces. La mejora continua y el mantenimiento de documentos contribuyen significativamente a la eficiencia operativa y a la alineación estratégica de la organización.</p>
+            </div>
+            
+            <!-- Pregunta interactiva 1 -->
+            <div class="quiz-container reveal">
+                <div class="quiz-question">¿Cuál de las siguientes técnicas de mejora de documentos implica fusionar elementos duplicados o simplificar?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="false">Eliminar</div>
+                    <div class="quiz-option" data-correct="true">Combinar</div>
+                    <div class="quiz-option" data-correct="false">Cambiar</div>
+                    <div class="quiz-option" data-correct="false">Mejorar</div>
+                </div>
+                <div class="quiz-feedback">
+                    <strong id="feedbackText"></strong>
+                </div>
+            </div>
+            
+            <!-- Pregunta interactiva 2 -->
+            <div class="quiz-container reveal">
+                <div class="quiz-question">¿Cuál de estas NO es una técnica para recopilar información al elaborar documentos?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="false">Investigación Documental</div>
+                    <div class="quiz-option" data-correct="false">Entrevista Directa</div>
+                    <div class="quiz-option" data-correct="false">Observación de Campo</div>
+                    <div class="quiz-option" data-correct="true">Análisis de Mercado</div>
+                </div>
+                <div class="quiz-feedback">
+                    <strong id="feedbackText"></strong>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección Documentos No Normativos -->
+        <section id="non-normative" class="content-section">
+            <h2 class="section-title">
+                <i class="fas fa-times-circle section-icon"></i>
+                Documentación No Normativa Interna
+            </h2>
+            <p class="reveal">La documentación que no se considera normativa interna son aquellos documentos que no establecen reglas, lineamientos, obligaciones o procedimientos obligatorios dentro de la empresa, es decir, que no tienen carácter de norma interna ni buscan regular formalmente la operación o comportamiento del personal. Esto se debe a que no contribuyen a la estandarización, control interno ni cumplimiento normativo.</p>
+            
+            <div class="card non-normative reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-info-circle"></i>
+                    Documentos informativos o de comunicación
+                </h3>
+                <div class="card-content">
+                    <div class="card-item">
+                        <p><strong>Ejemplos:</strong> boletines internos, memos informativos, circulares de carácter informativo (sin lineamientos obligatorios).</p>
+                    </div>
+                    <div class="card-item">
+                        <p><strong>Por qué no:</strong> solo comunican información, anuncios o recordatorios, pero no establecen reglas ni obligan a su cumplimiento.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card non-normative reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-sticky-note"></i>
+                    Documentos personales o de gestión individual
+                </h3>
+                <div class="card-content">
+                    <div class="card-item">
+                        <p><strong>Ejemplos:</strong> notas de reuniones, agendas personales, correos internos sobre tareas diarias, listas de pendientes de un colaborador.</p>
+                    </div>
+                    <div class="card-item">
+                        <p><strong>Por qué no:</strong> son de uso interno individual y no forman parte del marco normativo de la empresa.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card non-normative reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-external-link-alt"></i>
+                    Documentos de referencia externa sin obligatoriedad
+                </h3>
+                <div class="card-content">
+                    <div class="card-item">
+                        <p><strong>Ejemplos:</strong> artículos, libros, manuales de proveedores, normas ISO externas (si no están adoptadas formalmente).</p>
+                    </div>
+                    <div class="card-item">
+                        <p><strong>Por qué no:</strong> sirven de guía o referencia, pero no son documentos obligatorios dentro de la empresa hasta que se incorporen formalmente como política o procedimiento.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card non-normative reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-flask"></i>
+                    Documentos de proyectos o experimentales
+                </h3>
+                <div class="card-content">
+                    <div class="card-item">
+                        <p><strong>Ejemplos:</strong> borradores de proyectos, pruebas piloto, propuestas de mejora no aprobadas, diagramas preliminares.</p>
+                    </div>
+                    <div class="card-item">
+                        <p><strong>Por qué no:</strong> no tienen carácter oficial, y su contenido puede cambiar sin necesidad de cumplirlo formalmente.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card non-normative reveal">
+                <h3 class="card-title">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    Documentación comercial o administrativa externa
+                </h3>
+                <div class="card-content">
+                    <div class="card-item">
+                        <p><strong>Ejemplos:</strong> facturas, cotizaciones, contratos de clientes o proveedores (solo como evidencia de operación).</p>
+                    </div>
+                    <div class="card-item">
+                        <p><strong>Por qué no:</strong> aunque son importantes para operación y control, no regulan internamente el comportamiento ni los procesos de la empresa, sino que son evidencia de transacciones externas.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rule-general reveal">
+                <h3 class="card-title"><i class="fas fa-check-circle"></i> Regla general</h3>
+                <p>La documentación normativa interna obliga, regula y estandariza la forma de trabajar dentro de la empresa.</p>
+                <p>Todo lo que solo informa, evidencia, registra o es referencial sin establecer obligaciones no se considera normativa interna.</p>
+            </div>
+            
+            <!-- Pregunta interactiva 1 -->
+            <div class="quiz-container reveal">
+                <div class="quiz-question">¿Cuál de los siguientes NO se considera un documento normativo interno?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="false">Procedimientos Operativos (POP)</div>
+                    <div class="quiz-option" data-correct="false">Manual de Políticas y Lineamientos Generales</div>
+                    <div class="quiz-option" data-correct="true">Boletines informativos internos</div>
+                    <div class="quiz-option" data-correct="false">Guías Operativas</div>
+                </div>
+                <div class="quiz-feedback">
+                    <strong id="feedbackText"></strong>
+                </div>
+            </div>
+            
+            <!-- Pregunta interactiva 2 -->
+            <div class="quiz-container reveal">
+                <div class="quiz-question">¿Por qué los contratos con clientes no se consideran documentos normativos internos?</div>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="false">Porque son documentos confidenciales</div>
+                    <div class="quiz-option" data-correct="true">Porque son evidencia de transacciones externas, no regulan procesos internos</div>
+                    <div class="quiz-option" data-correct="false">Porque no requieren aprobación de la dirección</div>
+                    <div class="quiz-option" data-correct="false">Porque son documentos temporales</div>
+                </div>
+                <div class="quiz-feedback">
+                    <strong id="feedbackText"></strong>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Presentación Ejecutiva - Marco Normativo Corporativo</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sistema de almacenamiento local para guardar el progreso
+            function saveProgress() {
+                const progressData = {
+                    userLevel: userLevel,
+                    correctAnswers: correctAnswers,
+                    sectionsCompleted: Array.from(sectionsCompleted),
+                    sectionAchievements: sectionAchievements,
+                    achievementsUnlocked: achievementsUnlocked,
+                    dashboardPosition: {
+                        x: xOffset,
+                        y: yOffset
+                    },
+                    dashboardCollapsed: dashboardPanel.classList.contains('collapsed'),
+                    certificateIssued: certificateIssued
+                };
+                localStorage.setItem('normativeProgress', JSON.stringify(progressData));
+            }
+            
+            function loadProgress() {
+                const savedProgress = localStorage.getItem('normativeProgress');
+                if (savedProgress) {
+                    const progressData = JSON.parse(savedProgress);
+                    userLevel = progressData.userLevel || 1;
+                    correctAnswers = progressData.correctAnswers || 0;
+                    sectionsCompleted = new Set(progressData.sectionsCompleted || []);
+                    sectionAchievements = progressData.sectionAchievements || {
+                        'strategic': false,
+                        'operational': false,
+                        'support': false,
+                        'roles': false,
+                        'structure': false,
+                        'guide': false,
+                        'non-normative': false
+                    };
+                    achievementsUnlocked = progressData.achievementsUnlocked || {};
+                    certificateIssued = progressData.certificateIssued || false;
+                    
+                    // Restaurar posición del dashboard
+                    if (progressData.dashboardPosition) {
+                        xOffset = progressData.dashboardPosition.x || 0;
+                        yOffset = progressData.dashboardPosition.y || 0;
+                        setTranslate(xOffset, yOffset, dashboardPanel);
+                    }
+                    
+                    // Restaurar estado contraído del dashboard
+                    if (progressData.dashboardCollapsed) {
+                        dashboardPanel.classList.add('collapsed');
+                        dashboardContent.classList.add('collapsed');
+                        dashboardToggleIcon.className = 'fas fa-chevron-up';
+                        
+                        // Ajustar el título para el modo círculo
+                        const dashboardTitle = document.querySelector('.dashboard-title');
+                        dashboardTitle.innerHTML = 'Mi<br>Progreso';
+                        dashboardTitle.style.fontSize = '0.7rem';
+                        dashboardTitle.style.lineHeight = '1.2';
+                        dashboardTitle.style.padding = '5px';
+                        dashboardTitle.style.textAlign = 'center';
+                    } else {
+                        // Asegurar que el título esté en modo expandido
+                        const dashboardTitle = document.querySelector('.dashboard-title');
+                        dashboardTitle.textContent = 'Mi Progreso';
+                        dashboardTitle.style.fontSize = '1rem';
+                        dashboardTitle.style.lineHeight = 'normal';
+                        dashboardTitle.style.padding = '0';
+                        dashboardTitle.style.textAlign = 'left';
+                    }
+                    
+                    // Actualizar UI con datos cargados
+                    updateUIFromProgress();
+                    
+                    // Verificar si mostrar el botón de certificado
+                    checkCertificateEligibility();
+                }
+            }
+            
+            function updateUIFromProgress() {
+                // Actualizar nivel
+                userLevelElement.textContent = userLevel;
+                
+                // Actualizar logros desbloqueados
+                Object.keys(achievementsUnlocked).forEach(achievementId => {
+                    const achievement = document.getElementById(achievementId);
+                    if (achievement) {
+                        achievement.classList.remove('locked');
+                        achievement.classList.add('unlocked');
+                    }
+                });
+                
+                // Actualizar secciones completadas
+                sectionsCompleted.forEach(sectionId => {
+                    // Marcar logro de sección si corresponde
+                    if (sectionId === 'strategic' && !sectionAchievements.strategic) {
+                        sectionAchievements.strategic = true;
+                        unlockAchievement('achievementStrategic');
+                    }
+                    if (sectionId === 'operational' && !sectionAchievements.operational) {
+                        sectionAchievements.operational = true;
+                        unlockAchievement('achievementOperational');
+                    }
+                    if (sectionId === 'support' && !sectionAchievements.support) {
+                        sectionAchievements.support = true;
+                        unlockAchievement('achievementSupport');
+                    }
+                    if (sectionId === 'roles' && !sectionAchievements.roles) {
+                        sectionAchievements.roles = true;
+                        unlockAchievement('achievementRoles');
+                    }
+                    if (sectionId === 'structure' && !sectionAchievements.structure) {
+                        sectionAchievements.structure = true;
+                        unlockAchievement('achievementStructure');
+                    }
+                    if (sectionId === 'guide' && !sectionAchievements.guide) {
+                        sectionAchievements.guide = true;
+                        unlockAchievement('achievementGuide');
+                    }
+                    if (sectionId === 'non-normative' && !sectionAchievements.nonNormative) {
+                        sectionAchievements.nonNormative = true;
+                        unlockAchievement('achievementNonNormative');
+                    }
+                });
+                
+                // Verificar logro de primera sección
+                if (sectionsCompleted.size >= 1 && !achievementsUnlocked['achievementFirstSection']) {
+                    unlockAchievement('achievementFirstSection');
+                }
+                
+                // Verificar logro de completar todo
+                if (sectionsCompleted.size >= 7 && !achievementsUnlocked['achievementExpert']) {
+                    unlockAchievement('achievementExpert');
+                    
+                    // Mostrar automáticamente el botón de certificado sin necesidad de refrescar
+                    checkCertificateEligibility();
+                }
+            }
+            
+            // Sistema de navegación por pestañas
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const contentSections = document.querySelectorAll('.content-section');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remover clase activa de todos los botones
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Agregar clase activa al botón clickeado
+                    this.classList.add('active');
+                    
+                    // Ocultar todas las secciones de contenido
+                    contentSections.forEach(section => section.classList.remove('active'));
+                    
+                    // Mostrar la sección correspondiente
+                    const targetId = this.getAttribute('data-target');
+                    document.getElementById(targetId).classList.add('active');
+                    
+                    // Actualizar navegación por puntos
+                    updateFloatingNav(targetId);
+                    
+                    // Actualizar progreso
+                    updateProgress();
+                    
+                    // Guardar progreso
+                    saveProgress();
+                });
+            });
+            
+            // Sistema de navegación por puntos flotantes
+            const navDots = document.querySelectorAll('.nav-dot');
+            
+            function updateFloatingNav(activeSection) {
+                navDots.forEach(dot => {
+                    dot.classList.remove('active');
+                    if (dot.getAttribute('data-target') === activeSection) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+            
+            navDots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-target');
+                    
+                    // Actualizar pestañas
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                        if (btn.getAttribute('data-target') === targetId) {
+                            btn.classList.add('active');
+                        }
+                    });
+                    
+                    // Actualizar contenido
+                    contentSections.forEach(section => {
+                        section.classList.remove('active');
+                        if (section.id === targetId) {
+                            section.classList.add('active');
+                        }
+                    });
+                    
+                    // Actualizar navegación por puntos
+                    updateFloatingNav(targetId);
+                    
+                    // Actualizar progreso
+                    updateProgress();
+                    
+                    // Guardar progreso
+                    saveProgress();
+                });
+            });
+            
+            // Barra de progreso inteligente
+            const progressBar = document.getElementById('progressBar');
+            
+            function updateProgress() {
+                const activeSection = document.querySelector('.content-section.active');
+                const sections = document.querySelectorAll('.content-section');
+                const sectionIndex = Array.from(sections).indexOf(activeSection);
+                const progress = (sectionIndex / (sections.length - 1)) * 100;
+                
+                progressBar.style.width = `${progress}%`;
+            }
+            
+            // Dashboard de Progreso - Toggle
+            const dashboardHeader = document.getElementById('dashboardHeader');
+            const dashboardContent = document.getElementById('dashboardContent');
+            const dashboardToggleIcon = document.getElementById('dashboardToggleIcon');
+            
+            dashboardHeader.addEventListener('click', function(e) {
+                // Prevenir que el clic active el arrastre
+                e.stopPropagation();
+                
+                if (dashboardPanel.classList.contains('collapsed')) {
+                    // Expandir el dashboard
+                    dashboardPanel.classList.remove('collapsed');
+                    dashboardContent.classList.remove('collapsed');
+                    dashboardToggleIcon.className = 'fas fa-chevron-down';
+                    
+                    // Restaurar el título completo
+                    const dashboardTitle = document.querySelector('.dashboard-title');
+                    dashboardTitle.textContent = 'Mi Progreso';
+                    dashboardTitle.style.fontSize = '1rem';
+                    dashboardTitle.style.lineHeight = 'normal';
+                    dashboardTitle.style.padding = '0';
+                } else {
+                    // Contraer el dashboard a círculo
+                    dashboardPanel.classList.add('collapsed');
+                    dashboardContent.classList.add('collapsed');
+                    dashboardToggleIcon.className = 'fas fa-chevron-up';
+                    
+                    // Ajustar el título para el modo círculo
+                    const dashboardTitle = document.querySelector('.dashboard-title');
+                    dashboardTitle.innerHTML = 'Mi<br>Progreso';
+                    dashboardTitle.style.fontSize = '0.7rem';
+                    dashboardTitle.style.lineHeight = '1.2';
+                    dashboardTitle.style.padding = '5px';
+                    dashboardTitle.style.textAlign = 'center';
+                }
+                
+                // Guardar estado
+                saveProgress();
+            });
+            
+            // Sistema de gamificación
+            let userLevel = 1;
+            let correctAnswers = 0;
+            let sectionsCompleted = new Set();
+            let sectionAchievements = {
+                'strategic': false,
+                'operational': false,
+                'support': false,
+                'roles': false,
+                'structure': false,
+                'guide': false,
+                'non-normative': false
+            };
+            let achievementsUnlocked = {};
+            let certificateIssued = false;
+            
+            const userLevelElement = document.getElementById('userLevel');
+            
+            // Función para verificar si todas las preguntas de una sección están correctas
+            function checkSectionCompletion(sectionId) {
+                const section = document.getElementById(sectionId);
+                if (!section) return false;
+                
+                const quizzes = section.querySelectorAll('.quiz-container');
+                if (quizzes.length === 0) return false;
+                
+                // Verificar que todas las preguntas tengan al menos una opción correcta seleccionada
+                let allCorrect = true;
+                quizzes.forEach(quiz => {
+                    const selectedOption = quiz.querySelector('.quiz-option.selected.correct');
+                    if (!selectedOption) {
+                        allCorrect = false;
+                    }
+                });
+                
+                return allCorrect;
+            }
+            
+            // Preguntas interactivas - CORREGIDO
+            const quizOptions = document.querySelectorAll('.quiz-option');
+            
+            quizOptions.forEach(option => {
+    option.addEventListener('click', function() {
+        const quizContainer = this.closest('.quiz-container');
+        const section = quizContainer.closest('.content-section');
+        const options = quizContainer.querySelectorAll('.quiz-option');
+        const feedback = quizContainer.querySelector('.quiz-feedback');
+        const feedbackText = quizContainer.querySelector('#feedbackText');
+        
+        // Remover TODAS las clases de estado previo de todas las opciones
+        options.forEach(opt => {
+            opt.classList.remove('selected', 'correct', 'incorrect');
+        });
+        
+        // Marcar nueva opción seleccionada
+        this.classList.add('selected');
+        
+        // Verificar respuesta
+        const isCorrect = this.getAttribute('data-correct') === 'true';
+        
+        if (isCorrect) {
+            this.classList.add('correct');
+            feedbackText.textContent = '¡Correcto!';
+            feedback.className = 'quiz-feedback correct'; // Resetear clases
+            feedback.style.display = 'block';
+                        
+                        // Recompensa por respuesta correcta
+                        correctAnswers++;
+                        
+                        // Verificar si se completó la sección
+                        if (section && checkSectionCompletion(section.id) && !sectionsCompleted.has(section.id)) {
+                            sectionsCompleted.add(section.id);
+                            
+                            // Actualizar nivel del usuario
+                            userLevel = Math.max(1, Math.min(7, sectionsCompleted.size));
+                            userLevelElement.textContent = userLevel;
+                            
+                            // Verificar logro de primera sección
+                            if (sectionsCompleted.size === 1) {
+                                unlockAchievement('achievementFirstSection');
+                            }
+                            
+                            // Verificar logro de sección específica
+                            if (section.id === 'strategic' && !sectionAchievements.strategic) {
+                                sectionAchievements.strategic = true;
+                                unlockAchievement('achievementStrategic');
+                            }
+                            
+                            if (section.id === 'operational' && !sectionAchievements.operational) {
+                                sectionAchievements.operational = true;
+                                unlockAchievement('achievementOperational');
+                            }
+                            
+                            if (section.id === 'support' && !sectionAchievements.support) {
+                                sectionAchievements.support = true;
+                                unlockAchievement('achievementSupport');
+                            }
+                            
+                            if (section.id === 'roles' && !sectionAchievements.roles) {
+                                sectionAchievements.roles = true;
+                                unlockAchievement('achievementRoles');
+                            }
+                            
+                            if (section.id === 'structure' && !sectionAchievements.structure) {
+                                sectionAchievements.structure = true;
+                                unlockAchievement('achievementStructure');
+                            }
+                            
+                            if (section.id === 'guide' && !sectionAchievements.guide) {
+                                sectionAchievements.guide = true;
+                                unlockAchievement('achievementGuide');
+                            }
+                            
+                            if (section.id === 'non-normative' && !sectionAchievements.nonNormative) {
+                                sectionAchievements.nonNormative = true;
+                                unlockAchievement('achievementNonNormative');
+                            }
+                            
+                            // Verificar logro de completar todo
+                            if (sectionsCompleted.size >= 7) {
+                                unlockAchievement('achievementExpert');
+                                
+                                // Mostrar automáticamente el botón de certificado
+                                checkCertificateEligibility();
+                            }
+                            
+                            // Verificar si es elegible para certificado
+                            checkCertificateEligibility();
+                        }
+                        
+                        // Verificar logro de estudiante aplicado (todas las preguntas correctas)
+                        const totalQuizzes = document.querySelectorAll('.quiz-container').length;
+                        const correctQuizzes = document.querySelectorAll('.quiz-container .quiz-option.selected.correct').length;
+                        
+                        if (correctQuizzes === totalQuizzes && !achievementsUnlocked['achievementQuizMaster']) {
+                            unlockAchievement('achievementQuizMaster');
+                        }
+                            } else {
+            this.classList.add('incorrect');
+            feedbackText.textContent = 'Incorrecto. Intenta nuevamente.';
+            feedback.className = 'quiz-feedback incorrect'; // Resetear clases
+            feedback.style.display = 'block';
+            
+            // Marcar la respuesta correcta (solo esta tendrá estilo correcto)
+            options.forEach(opt => {
+                if (opt.getAttribute('data-correct') === 'true') {
+                    opt.classList.add('correct');
+                }
+            });
+        }
+                    
+                    // Guardar progreso
+                    saveProgress();
+                });
+            });
+            
+            // Efectos de revelado al scroll
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            function checkReveal() {
+                revealElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementTop < windowHeight - 100) {
+                        element.classList.add('active');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkReveal);
+            checkReveal(); // Verificar elementos visibles al cargar
+            
+            // Popups de logros desbloqueados
+            const achievementPopup = document.getElementById('achievementPopup');
+            const popupOverlay = document.getElementById('popupOverlay');
+            const popupTitle = document.getElementById('popupTitle');
+            const popupDesc = document.getElementById('popupDesc');
+            const closePopup = document.getElementById('closePopup');
+            
+            function showAchievementPopup(title, description) {
+                popupTitle.textContent = title;
+                popupDesc.textContent = description;
+                achievementPopup.classList.add('show');
+                popupOverlay.classList.add('show');
+            }
+            
+            function unlockAchievement(achievementId) {
+                const achievement = document.getElementById(achievementId);
+                if (achievement && achievement.classList.contains('locked')) {
+                    achievement.classList.remove('locked');
+                    achievement.classList.add('unlocked');
+                    achievementsUnlocked[achievementId] = true;
+                    
+                    // Mostrar popup
+                    const achievementName = achievement.querySelector('.achievement-name').textContent;
+                    const achievementDesc = achievement.querySelector('.achievement-desc').textContent;
+                    showAchievementPopup(achievementName, achievementDesc);
+                    
+                    // Guardar progreso
+                    saveProgress();
+                }
+            }
+            
+            closePopup.addEventListener('click', function() {
+                achievementPopup.classList.remove('show');
+                popupOverlay.classList.remove('show');
+            });
+            
+            popupOverlay.addEventListener('click', function() {
+                achievementPopup.classList.remove('show');
+                popupOverlay.classList.remove('show');
+            });
+            
+            // Sistema de arrastre para el dashboard - CORREGIDO
+            const dashboardPanel = document.getElementById('dashboardPanel');
+            let isDragging = false;
+            let currentX;
+            let currentY;
+            let initialX;
+            let initialY;
+            let xOffset = 0;
+            let yOffset = 0;
+            
+            // Event listeners para todo el panel (no solo el header)
+            dashboardPanel.addEventListener("mousedown", dragStart);
+            document.addEventListener("mouseup", dragEnd);
+            document.addEventListener("mousemove", drag);
+            
+            dashboardPanel.addEventListener("touchstart", dragStart);
+            document.addEventListener("touchend", dragEnd);
+            document.addEventListener("touchmove", drag);
+            
+            function dragStart(e) {
+                // Prevenir arrastre cuando se hace clic en el botón de toggle
+                if (e.target.closest('.dashboard-toggle')) {
+                    return;
+                }
+                
+                if (e.type === "touchstart") {
+                    initialX = e.touches[0].clientX - xOffset;
+                    initialY = e.touches[0].clientY - yOffset;
+                } else {
+                    initialX = e.clientX - xOffset;
+                    initialY = e.clientY - yOffset;
+                }
+                
+                isDragging = true;
+                dashboardPanel.style.cursor = 'grabbing';
+            }
+            
+            function dragEnd(e) {
+                initialX = currentX;
+                initialY = currentY;
+                
+                isDragging = false;
+                dashboardPanel.style.cursor = 'grab';
+                
+                // Guardar posición al soltar
+                saveProgress();
+            }
+            
+            function drag(e) {
+                if (isDragging) {
+                    e.preventDefault();
+                    
+                    if (e.type === "touchmove") {
+                        currentX = e.touches[0].clientX - initialX;
+                        currentY = e.touches[0].clientY - initialY;
+                    } else {
+                        currentX = e.clientX - initialX;
+                        currentY = e.clientY - initialY;
+                    }
+                    
+                    xOffset = currentX;
+                    yOffset = currentY;
+                    
+                    setTranslate(currentX, currentY, dashboardPanel);
+                }
+            }
+            
+            function setTranslate(xPos, yPos, el) {
+                el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+            }
+            
+            // Funcionalidad del certificado
+            const certificateBtnContainer = document.getElementById('certificateBtnContainer');
+            const requestCertificate = document.getElementById('requestCertificate');
+            const certificateModal = document.getElementById('certificateModal');
+            const certificateForm = document.getElementById('certificateForm');
+            const certificatePreview = document.getElementById('certificatePreview');
+            const cancelCertificate = document.getElementById('cancelCertificate');
+            const generateCertificate = document.getElementById('generateCertificate');
+            const downloadCertificate = document.getElementById('downloadCertificate');
+            const certificateUserName = document.getElementById('certificateUserName');
+            const certificateUserFullName = document.getElementById('certificateUserFullName');
+            const certificateDate = document.getElementById('certificateDate');
+            
+            // Verificar si el usuario es elegible para certificado
+function checkCertificateEligibility() {
+    // Verificar específicamente si el logro "Experto en Normativas" está desbloqueado
+    const expertAchievement = document.getElementById('achievementExpert');
+    if (expertAchievement && expertAchievement.classList.contains('unlocked') && !certificateIssued) {
+        certificateBtnContainer.style.display = 'block';
+    } else {
+        certificateBtnContainer.style.display = 'none';
+    }
+}
+            
+            // Abrir modal de certificado
+            requestCertificate.addEventListener('click', function() {
+                certificateModal.classList.add('show');
+                certificateForm.style.display = 'block';
+                certificatePreview.style.display = 'none';
+            });
+            
+            // Cancelar solicitud de certificado
+            cancelCertificate.addEventListener('click', function() {
+                certificateModal.classList.remove('show');
+            });
+            
+            // Generar certificado
+            generateCertificate.addEventListener('click', function() {
+                const userName = document.getElementById('userName').value;
+                
+                if (!userName) {
+                    alert('Por favor, ingresa tu nombre completo.');
+                    return;
+                }
+                
+                // Mostrar vista previa del certificado
+                certificateForm.style.display = 'none';
+                certificatePreview.style.display = 'block';
+                
+                // Rellenar datos en el certificado
+                certificateUserName.textContent = userName;
+                certificateUserFullName.textContent = userName;
+                
+                // Establecer fecha actual
+                const today = new Date();
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                certificateDate.textContent = `Emitido el ${today.toLocaleDateString('es-ES', options)}`;
+            });
+            
+            // Descargar certificado como PDF
+            downloadCertificate.addEventListener('click', function() {
+                const certificateContent = document.getElementById('certificateContent');
+                
+                // Configuración para html2pdf
+                const options = {
+                    margin: 10,
+                    filename: 'Certificado_Gestion_Documental.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                };
+                
+                // Generar PDF
+                html2pdf().set(options).from(certificateContent).save().then(() => {
+                    // Marcar certificado como emitido
+                    certificateIssued = true;
+                    saveProgress();
+                    
+                    // Ocultar botón de certificado
+                    certificateBtnContainer.style.display = 'none';
+                    
+                    // Cerrar modal
+                    certificateModal.classList.remove('show');
+                    
+                    alert('Certificado descargado exitosamente. Se ha guardado en tu escritorio.');
+                });
+            });
+            
+            // Cargar progreso guardado al iniciar
+            loadProgress();
+
+/* =========================================================
+   FULLSCREEN (Pantalla completa) - aislado, sin interferir
+   ========================================================= */
+(function initFullscreenToggle() {
+  const btn = document.getElementById('fullscreenBtn');
+  const icon = document.getElementById('fullscreenIcon');
+  if (!btn || !icon) return;
+
+  function isFullscreen() {
+    return !!(document.fullscreenElement || document.webkitFullscreenElement);
+  }
+
+  async function enterFullscreen() {
+    const el = document.documentElement; // toda la página
+    if (el.requestFullscreen) return el.requestFullscreen();
+    if (el.webkitRequestFullscreen) return el.webkitRequestFullscreen(); // Safari
+  }
+
+  async function exitFullscreen() {
+    if (document.exitFullscreen) return document.exitFullscreen();
+    if (document.webkitExitFullscreen) return document.webkitExitFullscreen(); // Safari
+  }
+
+  function updateIcon() {
+    if (isFullscreen()) {
+      icon.classList.remove('fa-expand');
+      icon.classList.add('fa-compress');
+      btn.title = 'Salir de pantalla completa';
+    } else {
+      icon.classList.remove('fa-compress');
+      icon.classList.add('fa-expand');
+      btn.title = 'Pantalla completa';
+    }
+  }
+
+  btn.addEventListener('click', async () => {
+    try {
+      if (isFullscreen()) await exitFullscreen();
+      else await enterFullscreen();
+      updateIcon();
+    } catch (e) {
+      console.error('Fullscreen error:', e);
+      alert('El navegador bloqueó la pantalla completa (requiere interacción del usuario).');
+    }
+  });
+
+  document.addEventListener('fullscreenchange', updateIcon);
+  document.addEventListener('webkitfullscreenchange', updateIcon); // Safari
+  updateIcon();
+})();
+
+        });
+    </script>
+
+<div style="text-align:center; font-size:0.85rem; color:#555; position:fixed; bottom:10px; width:100%; z-index:101;">
+  By Pablo Ojeda
+</div>
+
+</body>
+</html>
